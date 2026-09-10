@@ -28,14 +28,14 @@ func _physics_process(delta: float) -> void:
 	if cooldown_disparo > 0:
 		cooldown_disparo -= delta
 	if ((leftDis+rightDis)!=0 or (upDis+downDis)!=0) and cooldown_disparo <= 0:
-		lanzar_objeto(leftDis+rightDis,upDis+downDis)
+		lanzar_objeto(leftDis+rightDis,upDis+downDis,sprite2d.flip_h)
 		cooldown_disparo = tiempo_entre_disparos
 	move_and_slide()
 		
-func lanzar_objeto(x_dir,y_dir):
+func lanzar_objeto(x_dir,y_dir, dir):
 	var piedra = piedra_objeto.instantiate()
 	get_tree().current_scene.add_child(piedra)
-	if x_dir>0: piedra.global_position=markerL.global_position
+	if dir: piedra.global_position=markerL.global_position
 	else: piedra.global_position=markerR.global_position
 	var new_dir:Vector2=Vector2(x_dir,y_dir)
 	piedra.lanzar(new_dir)

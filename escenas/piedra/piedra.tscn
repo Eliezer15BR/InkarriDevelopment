@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://b8y0e03iyvsit" path="res://escenas/piedra/piedra.gd" id="1_xasnl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_krxyo"]
-radius = 6.0
+radius = 4.0
 
 [node name="Piedra" type="Area2D" unique_id=1537495979]
 collision_layer = 4
 script = ExtResource("1_xasnl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=54587367]
-scale = Vector2(0.03, 0.03)
+scale = Vector2(0.02, 0.02)
 texture = ExtResource("1_ofsn6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951933012]
