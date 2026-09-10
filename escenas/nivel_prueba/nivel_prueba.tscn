@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://d3pdixv1w5ejl"]
 
+[ext_resource type="Script" uid="uid://cejnrwkqvf6g1" path="res://escenas/nivel_prueba/nivel_prueba.gd" id="1_86gqm"]
 [ext_resource type="PackedScene" uid="uid://dswiqsrbm4he6" path="res://escenas/bordes/bordes.tscn" id="1_jdss0"]
 [ext_resource type="PackedScene" uid="uid://cdqrtbeshquoq" path="res://escenas/personaje/character_body_2d.tscn" id="2_86gqm"]
 
 [node name="NivelPrueba" type="Node2D" unique_id=761798438]
+script = ExtResource("1_86gqm")
 
 [node name="Bordes" parent="." unique_id=1916750199 instance=ExtResource("1_jdss0")]
 

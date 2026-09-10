@@ -2,18 +2,30 @@
 
 [ext_resource type="Texture2D" uid="uid://bmtcj3trov6aj" path="res://personaje1.png" id="1_pwxuj"]
 [ext_resource type="Script" uid="uid://bxbooanakh557" path="res://escenas/personaje/character_body_2d.gd" id="1_ycxet"]
+[ext_resource type="PackedScene" uid="uid://b3f2snxs60q48" path="res://escenas/piedra/piedra.tscn" id="2_y35qh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
-size = Vector2(127, 177)
+size = Vector2(51.5, 69)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2098188972 node_paths=PackedStringArray("sprite2d")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2098188972 node_paths=PackedStringArray("sprite2d", "markerL", "markerR")]
+collision_layer = 2
+platform_floor_layers = 4294967041
 script = ExtResource("1_ycxet")
+piedra_objeto = ExtResource("2_y35qh")
 sprite2d = NodePath("Sprite2D")
+markerL = NodePath("ThrowPointR")
+markerR = NodePath("ThrowPointR")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=106788488]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_pwxuj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2101000475]
-position = Vector2(0.5, 0.5)
+position = Vector2(-0.75, 0)
 shape = SubResource("RectangleShape2D_krxyo")
+
+[node name="ThrowPointR" type="Marker2D" parent="." unique_id=2053619594]
+position = Vector2(25, -6)
+
+[node name="ThrowPointL" type="Marker2D" parent="." unique_id=1681810682]
+position = Vector2(-27, -6)
