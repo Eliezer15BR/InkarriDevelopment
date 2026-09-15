@@ -7,6 +7,7 @@
 radius = 4.0
 
 [node name="Piedra" type="Area2D" unique_id=1537495979]
+z_index = 1
 collision_layer = 4
 script = ExtResource("1_xasnl")
 

@@ -1,31 +1,166 @@
 [gd_scene format=3 uid="uid://cdqrtbeshquoq"]
 
-[ext_resource type="Texture2D" uid="uid://bmtcj3trov6aj" path="res://personaje1.png" id="1_pwxuj"]
 [ext_resource type="Script" uid="uid://bxbooanakh557" path="res://escenas/personaje/character_body_2d.gd" id="1_ycxet"]
 [ext_resource type="PackedScene" uid="uid://b3f2snxs60q48" path="res://escenas/piedra/piedra.tscn" id="2_y35qh"]
+[ext_resource type="Texture2D" uid="uid://vrh1u2qbh60q" path="res://sprites/personaje/Cabeza.png" id="4_5gj2m"]
+[ext_resource type="Texture2D" uid="uid://deojp5hvdmnce" path="res://sprites/personaje/Cuerpo.png" id="5_hcpjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
-size = Vector2(38, 53)
+size = Vector2(22, 43)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2098188972 node_paths=PackedStringArray("sprite2d", "markerL", "markerR")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0flq"]
+atlas = ExtResource("4_5gj2m")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cryge"]
+atlas = ExtResource("4_5gj2m")
+region = Rect2(75, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o85w"]
+atlas = ExtResource("4_5gj2m")
+region = Rect2(25, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0fvj"]
+atlas = ExtResource("4_5gj2m")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsdpv"]
+atlas = ExtResource("4_5gj2m")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51ohn"]
+atlas = ExtResource("4_5gj2m")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5cfb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0flq")
+}],
+"loop": 1,
+"name": &"go_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cryge")
+}],
+"loop": 1,
+"name": &"go_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o85w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0fvj")
+}],
+"loop": 1,
+"name": &"go_x",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsdpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51ohn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aae6"]
+atlas = ExtResource("5_hcpjw")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gj2m"]
+atlas = ExtResource("5_hcpjw")
+region = Rect2(50, 25, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4a25"]
+atlas = ExtResource("5_hcpjw")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7p26"]
+atlas = ExtResource("5_hcpjw")
+region = Rect2(0, 25, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eljjw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aae6")
+}],
+"loop": 1,
+"name": &"go_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gj2m")
+}],
+"loop": 1,
+"name": &"go_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4a25")
+}],
+"loop": 1,
+"name": &"go_x",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7p26")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2098188972 node_paths=PackedStringArray("sprite2d1", "sprite2d2", "markerL", "markerR")]
 collision_layer = 2
 platform_floor_layers = 4294967041
+platform_wall_layers = 1
 script = ExtResource("1_ycxet")
 piedra_objeto = ExtResource("2_y35qh")
-sprite2d = NodePath("Sprite2D")
+sprite2d1 = NodePath("Node2D/Cabeza")
+sprite2d2 = NodePath("Node2D/Cuerpo")
 markerL = NodePath("ThrowPointL")
 markerR = NodePath("ThrowPointR")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=106788488]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_pwxuj")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2101000475]
-position = Vector2(0, -0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_krxyo")
 
 [node name="ThrowPointR" type="Marker2D" parent="." unique_id=2053619594]
-position = Vector2(19, -3)
+position = Vector2(11, 1)
 
 [node name="ThrowPointL" type="Marker2D" parent="." unique_id=1681810682]
-position = Vector2(-19, -3)
+position = Vector2(-11, 1)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1246187063]
+
+[node name="Cabeza" type="AnimatedSprite2D" parent="Node2D" unique_id=1760669181]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_5cfb8")
+animation = &"go_down"
+frame_progress = 0.3294149
+
+[node name="Cuerpo" type="AnimatedSprite2D" parent="Node2D" unique_id=299939157]
+position = Vector2(0, 12)
+sprite_frames = SubResource("SpriteFrames_eljjw")
+animation = &"go_x"
+frame_progress = 0.7269804
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=596724453]
+limit_left = -550
+limit_top = -325
+limit_bottom = 325
+limit_smoothed = true
