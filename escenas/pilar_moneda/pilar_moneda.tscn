@@ -2,13 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://b2ye6qiu7ixy6" path="res://sprites/objects/pilar.png" id="1_85jqp"]
 [ext_resource type="Texture2D" uid="uid://b8ens8wmhx7fw" path="res://sprites/objects/moneda.png" id="2_6ir1p"]
+[ext_resource type="Script" uid="uid://do7ibuvnae4f3" path="res://escenas/pilar_moneda/recojo.gd" id="3_6ir1p"]
 
 [sub_resource type="Animation" id="Animation_85jqp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Moneda:scale")
+tracks/0/path = NodePath("Recojo/Moneda:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Moneda:position")
+tracks/1/path = NodePath("Recojo/Moneda:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,7 +38,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Moneda:scale")
+tracks/0/path = NodePath("Recojo/Moneda:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,7 +50,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Moneda:position")
+tracks/1/path = NodePath("Recojo/Moneda:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -68,15 +69,14 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
 size = Vector2(22, 25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hql3"]
+size = Vector2(52, 73)
+
 [node name="PilarMoneda" type="Node2D" unique_id=108227599]
 
 [node name="Pilar" type="Sprite2D" parent="." unique_id=2124156344]
 texture = ExtResource("1_85jqp")
 hframes = 2
-
-[node name="Moneda" type="Sprite2D" parent="." unique_id=121727602]
-position = Vector2(0, -28)
-texture = ExtResource("2_6ir1p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=288883613]
 libraries/ = SubResource("AnimationLibrary_s6rlr")
@@ -88,3 +88,16 @@ autoplay = &"rotar"
 z_index = 2
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_krxyo")
+
+[node name="Recojo" type="Area2D" parent="." unique_id=1816766957]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_6ir1p")
+
+[node name="Moneda" type="Sprite2D" parent="Recojo" unique_id=121727602]
+position = Vector2(0, -28)
+texture = ExtResource("2_6ir1p")
+
+[node name="DetectPlayer" type="CollisionShape2D" parent="Recojo" unique_id=732457688]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_1hql3")

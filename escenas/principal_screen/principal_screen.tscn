@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bkaw541rjy800"]
+
+[ext_resource type="Script" uid="uid://dsrn825bdbyd6" path="res://principal_screen.gd" id="1_wxkds"]
+[ext_resource type="PackedScene" uid="uid://cqxrpdj2iyxo6" path="res://escenas/start_room/start_room.tscn" id="2_ccs1q"]
+[ext_resource type="PackedScene" uid="uid://d3pdixv1w5ejl" path="res://escenas/nivel_prueba/nivel_prueba.tscn" id="2_eyser"]
+
+[node name="PrincipalScreen" type="Node2D" unique_id=805038794]
+script = ExtResource("1_wxkds")
+niveles = Array[PackedScene]([ExtResource("2_ccs1q"), ExtResource("2_eyser")])

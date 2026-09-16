@@ -5,8 +5,11 @@ extends CharacterBody2D
 @export var markerL: Marker2D
 @export var markerR: Marker2D
 @export var tiempo_entre_disparos: float = 0.2
+signal monedas_sign(cantidad:int)
 var cooldown_disparo: float = 0.0
 var _velocidad:float=100.0
+var objeto:Node=null;
+var monedas:int=0
 func _ready() -> void:
 	animar('idle')
 func _physics_process(delta: float) -> void:
@@ -40,6 +43,11 @@ func _physics_process(delta: float) -> void:
 	if ((leftDis+rightDis)!=0 or (upDis+downDis)!=0) and cooldown_disparo <= 0:
 		lanzar_objeto(leftDis+rightDis,upDis+downDis,sprite2d1.flip_h)
 		cooldown_disparo = tiempo_entre_disparos
+	if Input.is_action_just_pressed("interactuar"):
+		if objeto!=null:
+			objeto.interactuar(self)
+			objeto=null
+		
 	move_and_slide()
 		
 func lanzar_objeto(x_dir,y_dir, dir):
@@ -53,3 +61,7 @@ func lanzar_objeto(x_dir,y_dir, dir):
 func animar(accion: String):
 	sprite2d1.play(accion)
 	sprite2d2.play(accion)
+
+func agregar_moneda()->void:
+	monedas+=1
+	monedas_sign.emit(monedas)

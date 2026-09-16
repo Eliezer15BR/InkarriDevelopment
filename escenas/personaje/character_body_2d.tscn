@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bxbooanakh557" path="res://escenas/personaje/character_body_2d.gd" id="1_ycxet"]
 [ext_resource type="PackedScene" uid="uid://b3f2snxs60q48" path="res://escenas/piedra/piedra.tscn" id="2_y35qh"]
 [ext_resource type="Texture2D" uid="uid://vrh1u2qbh60q" path="res://sprites/personaje/Cabeza.png" id="4_5gj2m"]
+[ext_resource type="PackedScene" uid="uid://b7rf1sidcli84" path="res://escenas/datos_jugador/datos_jugador.tscn" id="5_5gj2m"]
 [ext_resource type="Texture2D" uid="uid://deojp5hvdmnce" path="res://sprites/personaje/Cuerpo.png" id="5_hcpjw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
@@ -124,7 +125,7 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2098188972 node_paths=PackedStringArray("sprite2d1", "sprite2d2", "markerL", "markerR")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2098188972 node_paths=PackedStringArray("sprite2d1", "sprite2d2", "markerL", "markerR") groups=["player"]]
 collision_layer = 2
 platform_floor_layers = 4294967041
 platform_wall_layers = 1
@@ -162,5 +163,11 @@ frame_progress = 0.7269804
 [node name="Camera2D" type="Camera2D" parent="." unique_id=596724453]
 limit_left = -550
 limit_top = -325
+limit_right = 550
 limit_bottom = 325
 limit_smoothed = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=988236367]
+
+[node name="Contador" parent="CanvasLayer" unique_id=219206262 node_paths=PackedStringArray("player") instance=ExtResource("5_5gj2m")]
+player = NodePath("../..")
