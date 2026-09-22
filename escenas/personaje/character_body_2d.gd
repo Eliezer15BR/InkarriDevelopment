@@ -5,6 +5,10 @@ extends CharacterBody2D
 @export var markerL: Marker2D
 @export var markerR: Marker2D
 @export var build: BuildResource
+@export var tiempo_invulnerabilidad: float = 5.0
+signal vida_cambiada(vida_actual: float, vida_maxima: float)
+signal murio
+var invulnerable: bool = false
 var tiempo_entre_disparos: float= 1.0
 signal monedas_sign(cantidad:int)
 var cooldown_disparo: float = 0.0
@@ -17,7 +21,7 @@ var vida_actual:int
 var dano:int
 var velocidad_movimiento: float
 var velocidad_ataque: float
-var defensa: int
+var defensa: float
 var fortuna: float
 func _ready() -> void:
 	aplicar_build(build)
@@ -91,3 +95,40 @@ func aplicar_build(nueva_build: BuildResource)->void:
 	_velocidad=velocidad_movimiento*PIXELS_PER_MOVEMENT
 	if velocidad_ataque > 0:
 		tiempo_entre_disparos=1.0/velocidad_ataque
+	vida_cambiada.emit(vida_actual,vida_maxima)
+	
+func recibir_dano(cantidad:int) -> void:
+	if invulnerable or vida_actual<=0:
+		return
+	var multiplicador_defensa: int=1.0-(defensa/100.0)
+	var dano_final: int=cantidad*multiplicador_defensa
+	dano_final=max(dano_final,0)
+	if dano_final<=0: return
+	vida_actual=max(vida_actual-dano_final,0.0)
+	vida_cambiada.emit(vida_actual,vida_maxima)
+	if vida_actual<=0: 
+		morir()
+		return
+	activar_invulnerabilidad()
+func curar(cantidad: float) -> void:
+	if vida_actual<=0: return
+	vida_actual=min(vida_actual+cantidad,vida_maxima)
+	vida_cambiada.emit(vida_actual,vida_maxima)
+func morir()->void:
+	murio.emit()
+
+func activar_invulnerabilidad()->void:
+	invulnerable=true
+	var tiempo_final:int=Time.get_ticks_msec()+int(tiempo_invulnerabilidad*1000.0)
+	while Time.get_ticks_msec()<tiempo_final:
+		sprite2d1.visible=false
+		sprite2d2.visible=false
+		await get_tree().create_timer(0.1).timeout
+		sprite2d1.visible=true
+		sprite2d2.visible=true
+		await get_tree().create_timer(0.1).timeout
+	sprite2d1.visible=true
+	sprite2d2.visible=true
+	invulnerable=false
+		
+	

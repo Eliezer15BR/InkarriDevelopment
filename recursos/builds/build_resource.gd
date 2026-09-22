@@ -5,5 +5,5 @@ class_name BuildResource
 @export var dano: int =10
 @export var velocidad_movimiento: float =4.0
 @export var velocidad_ataque: float =1.0
-@export var defensa: int = 0
+@export var defensa: float = 0.0
 @export var fortuna: float =0.0
