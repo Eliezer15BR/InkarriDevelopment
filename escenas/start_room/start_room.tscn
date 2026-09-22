@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://cqxrpdj2iyxo6"]
 
-[ext_resource type="PackedScene" uid="uid://cdqrtbeshquoq" path="res://escenas/personaje/character_body_2d.tscn" id="1_5rgqm"]
 [ext_resource type="PackedScene" uid="uid://dswiqsrbm4he6" path="res://escenas/bordes/bordes.tscn" id="1_j2cbo"]
 [ext_resource type="Texture2D" uid="uid://ildxfn1w47hc" path="res://sprites/map_textures/suelo2.png" id="3_jgv78"]
 [ext_resource type="Texture2D" uid="uid://cjfjk1bg4kbda" path="res://sprites/map_textures/suelo.png" id="4_g4vou"]
@@ -50,8 +49,6 @@ tile_set = SubResource("TileSet_5rgqm")
 rendering_quadrant_size = 25
 physics_quadrant_size = 25
 
-[node name="CharacterBody2D" parent="." unique_id=2098188972 instance=ExtResource("1_5rgqm")]
-
 [node name="Portal" type="Area2D" parent="." unique_id=231565330]
 collision_layer = 0
 collision_mask = 2
@@ -60,3 +57,5 @@ script = ExtResource("5_g4vou")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=752919806]
 position = Vector2(-0.5, 282.5)
 shape = SubResource("RectangleShape2D_krxyo")
+
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1165819342]

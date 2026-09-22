@@ -3,7 +3,16 @@
 [ext_resource type="Script" uid="uid://dsrn825bdbyd6" path="res://principal_screen.gd" id="1_wxkds"]
 [ext_resource type="PackedScene" uid="uid://cqxrpdj2iyxo6" path="res://escenas/start_room/start_room.tscn" id="2_ccs1q"]
 [ext_resource type="PackedScene" uid="uid://d3pdixv1w5ejl" path="res://escenas/nivel_prueba/nivel_prueba.tscn" id="2_eyser"]
+[ext_resource type="PackedScene" uid="uid://cdqrtbeshquoq" path="res://escenas/personaje/character_body_2d.tscn" id="4_j40sd"]
 
-[node name="PrincipalScreen" type="Node2D" unique_id=805038794]
+[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player")]
 script = ExtResource("1_wxkds")
 niveles = Array[PackedScene]([ExtResource("2_ccs1q"), ExtResource("2_eyser")])
+room_container = NodePath("RoomContainer")
+player = NodePath("CharacterBody2D")
+
+[node name="RoomContainer" type="Node2D" parent="." unique_id=80319903]
+
+[node name="SalaActual" type="Node2D" parent="RoomContainer" unique_id=2141189575]
+
+[node name="CharacterBody2D" parent="." unique_id=2098188972 instance=ExtResource("4_j40sd")]
