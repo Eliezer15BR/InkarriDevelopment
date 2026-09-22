@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxbooanakh557" path="res://escenas/personaje/character_body_2d.gd" id="1_ycxet"]
 [ext_resource type="PackedScene" uid="uid://b3f2snxs60q48" path="res://escenas/piedra/piedra.tscn" id="2_y35qh"]
+[ext_resource type="Resource" uid="uid://dhffaoux07r3c" path="res://recursos/builds/build_base.tres" id="3_hcpjw"]
 [ext_resource type="Texture2D" uid="uid://vrh1u2qbh60q" path="res://sprites/personaje/Cabeza.png" id="4_5gj2m"]
 [ext_resource type="PackedScene" uid="uid://b7rf1sidcli84" path="res://escenas/datos_jugador/datos_jugador.tscn" id="5_5gj2m"]
 [ext_resource type="Texture2D" uid="uid://deojp5hvdmnce" path="res://sprites/personaje/Cuerpo.png" id="5_hcpjw"]
@@ -135,6 +136,7 @@ sprite2d1 = NodePath("Node2D/Cabeza")
 sprite2d2 = NodePath("Node2D/Cuerpo")
 markerL = NodePath("ThrowPointL")
 markerR = NodePath("ThrowPointR")
+build = ExtResource("3_hcpjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2101000475]
 position = Vector2(0, 0.5)

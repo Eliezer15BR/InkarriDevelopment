@@ -4,13 +4,23 @@ extends CharacterBody2D
 @export var sprite2d2: AnimatedSprite2D
 @export var markerL: Marker2D
 @export var markerR: Marker2D
-@export var tiempo_entre_disparos: float = 0.2
+@export var build: BuildResource
+var tiempo_entre_disparos: float= 1.0
 signal monedas_sign(cantidad:int)
 var cooldown_disparo: float = 0.0
-var _velocidad:float=100.0
+var _velocidad:float=0.0
 var objeto_interactuable:Node=null;
 var monedas:int=0
+const PIXELS_PER_MOVEMENT: float = 25.0
+var vida_maxima:int 
+var vida_actual:int
+var dano:int
+var velocidad_movimiento: float
+var velocidad_ataque: float
+var defensa: int
+var fortuna: float
 func _ready() -> void:
+	aplicar_build(build)
 	animar('idle')
 func _physics_process(delta: float) -> void:
 	var left=Input.is_action_pressed("izq")
@@ -69,3 +79,15 @@ func agregar_moneda()->void:
 func registrar_interactuable(objeto: Node)-> void: objeto_interactuable=objeto
 func quitar_interactuable(objeto: Node)->void:
 	if objeto_interactuable==objeto: objeto_interactuable=null
+	
+func aplicar_build(nueva_build: BuildResource)->void:
+	vida_maxima=nueva_build.vida
+	vida_actual=vida_maxima
+	dano=nueva_build.dano
+	velocidad_movimiento=nueva_build.velocidad_movimiento
+	velocidad_ataque=nueva_build.velocidad_ataque
+	defensa=nueva_build.defensa
+	fortuna=nueva_build.fortuna
+	_velocidad=velocidad_movimiento*PIXELS_PER_MOVEMENT
+	if velocidad_ataque > 0:
+		tiempo_entre_disparos=1.0/velocidad_ataque
