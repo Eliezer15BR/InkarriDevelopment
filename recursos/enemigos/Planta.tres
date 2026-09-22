@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyStatsResource" format=3 uid="uid://dxabkatyxupg1"]
+
+[ext_resource type="Script" uid="uid://sdmijnlnsqo6" path="res://recursos/enemigos/enemy_stats_resource.gd" id="1_566mx"]
+
+[resource]
+script = ExtResource("1_566mx")
+nombre = "Planta"
+vida = 180.0
+dano = 15.0
+velocidad_movimiento = 0.0
+defensa = 5.0
+metadata/_custom_type_script = "uid://sdmijnlnsqo6"

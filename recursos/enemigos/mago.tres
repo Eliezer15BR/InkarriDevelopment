@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EnemyStatsResource" format=3 uid="uid://nvtivk8l6ysv"]
+
+[ext_resource type="Script" uid="uid://sdmijnlnsqo6" path="res://recursos/enemigos/enemy_stats_resource.gd" id="1_jxacx"]
+
+[resource]
+script = ExtResource("1_jxacx")
+nombre = "Mago"
+velocidad_movimiento = 3.5
+metadata/_custom_type_script = "uid://sdmijnlnsqo6"

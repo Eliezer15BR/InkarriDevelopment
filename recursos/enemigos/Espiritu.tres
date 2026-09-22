@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyStatsResource" format=3 uid="uid://ik7pliqlm7sk"]
+
+[ext_resource type="Script" uid="uid://sdmijnlnsqo6" path="res://recursos/enemigos/enemy_stats_resource.gd" id="1_kqqnd"]
+
+[resource]
+script = ExtResource("1_kqqnd")
+nombre = "Espiritu"
+vida = 450.0
+dano = 20.0
+velocidad_movimiento = 2.5
+defensa = 8.0
+metadata/_custom_type_script = "uid://sdmijnlnsqo6"

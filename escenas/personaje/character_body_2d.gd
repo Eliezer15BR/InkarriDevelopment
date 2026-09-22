@@ -70,7 +70,7 @@ func lanzar_objeto(x_dir,y_dir, dir):
 	if !dir: piedra.global_position=markerL.global_position
 	else: piedra.global_position=markerR.global_position
 	var new_dir:Vector2=Vector2(x_dir,y_dir)
-	piedra.lanzar(new_dir)
+	piedra.lanzar(new_dir,dano)
 
 func animar(accion: String):
 	sprite2d1.play(accion)
@@ -100,7 +100,7 @@ func aplicar_build(nueva_build: BuildResource)->void:
 		tiempo_entre_disparos=1.0/velocidad_ataque
 	vida_cambiada.emit(vida_actual,vida_maxima)
 	
-func recibir_dano(cantidad:int) -> void:
+func recibir_dano(cantidad:float) -> void:
 	if invulnerable or vida_actual<=0:
 		return
 	var multiplicador_defensa: float=1.0-(defensa/100.0)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyStatsResource" format=3 uid="uid://dmr85nevc3pk8"]
+
+[ext_resource type="Script" uid="uid://sdmijnlnsqo6" path="res://recursos/enemigos/enemy_stats_resource.gd" id="1_yohny"]
+
+[resource]
+script = ExtResource("1_yohny")
+nombre = "Esqeleto"
+vida = 180.0
+dano = 15.0
+defensa = 5.0
+metadata/_custom_type_script = "uid://sdmijnlnsqo6"
