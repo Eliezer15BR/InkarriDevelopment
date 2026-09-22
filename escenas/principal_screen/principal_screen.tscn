@@ -13,6 +13,4 @@ player = NodePath("CharacterBody2D")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=80319903]
 
-[node name="SalaActual" type="Node2D" parent="RoomContainer" unique_id=2141189575]
-
 [node name="CharacterBody2D" parent="." unique_id=2098188972 instance=ExtResource("4_j40sd")]

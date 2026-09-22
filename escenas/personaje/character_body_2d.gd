@@ -8,7 +8,7 @@ extends CharacterBody2D
 signal monedas_sign(cantidad:int)
 var cooldown_disparo: float = 0.0
 var _velocidad:float=100.0
-var objeto:Node=null;
+var objeto_interactuable:Node=null;
 var monedas:int=0
 func _ready() -> void:
 	animar('idle')
@@ -44,9 +44,9 @@ func _physics_process(delta: float) -> void:
 		lanzar_objeto(leftDis+rightDis,upDis+downDis,sprite2d1.flip_h)
 		cooldown_disparo = tiempo_entre_disparos
 	if Input.is_action_just_pressed("interactuar"):
-		if objeto!=null:
-			objeto.interactuar(self)
-			objeto=null
+		if objeto_interactuable!=null and is_instance_valid(objeto_interactuable):
+			objeto_interactuable.interactuar(self)
+			objeto_interactuable=null
 		
 	move_and_slide()
 		
@@ -65,3 +65,7 @@ func animar(accion: String):
 func agregar_moneda()->void:
 	monedas+=1
 	monedas_sign.emit(monedas)
+
+func registrar_interactuable(objeto: Node)-> void: objeto_interactuable=objeto
+func quitar_interactuable(objeto: Node)->void:
+	if objeto_interactuable==objeto: objeto_interactuable=null
