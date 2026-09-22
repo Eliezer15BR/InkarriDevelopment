@@ -1,2 +1,3 @@
 Cambiar las hitboxes de muros para que el jugador las sobrepase
 Documento definir invulnerabilidad temporal
+Frame piedra explotando
