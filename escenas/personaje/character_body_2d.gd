@@ -16,9 +16,9 @@ var _velocidad:float=0.0
 var objeto_interactuable:Node=null;
 var monedas:int=0
 const PIXELS_PER_MOVEMENT: float = 25.0
-var vida_maxima:int 
-var vida_actual:int
-var dano:int
+var vida_maxima:float
+var vida_actual:float
+var dano:float
 var velocidad_movimiento: float
 var velocidad_ataque: float
 var defensa: float
@@ -85,6 +85,9 @@ func quitar_interactuable(objeto: Node)->void:
 	if objeto_interactuable==objeto: objeto_interactuable=null
 	
 func aplicar_build(nueva_build: BuildResource)->void:
+	if nueva_build==null:
+		push_error("El Player no tiene build")
+		return
 	vida_maxima=nueva_build.vida
 	vida_actual=vida_maxima
 	dano=nueva_build.dano
@@ -100,8 +103,8 @@ func aplicar_build(nueva_build: BuildResource)->void:
 func recibir_dano(cantidad:int) -> void:
 	if invulnerable or vida_actual<=0:
 		return
-	var multiplicador_defensa: int=1.0-(defensa/100.0)
-	var dano_final: int=cantidad*multiplicador_defensa
+	var multiplicador_defensa: float=1.0-(defensa/100.0)
+	var dano_final: float=cantidad*multiplicador_defensa
 	dano_final=max(dano_final,0)
 	if dano_final<=0: return
 	vida_actual=max(vida_actual-dano_final,0.0)
