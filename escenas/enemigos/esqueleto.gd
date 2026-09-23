@@ -1,5 +1,6 @@
 extends EnemyBase
 @export var navigation_agent:NavigationAgent2D;
+@export var area_dano: Area2D
 var player: CharacterBody2D=null
 func _ready():
 	super._ready()
@@ -7,6 +8,7 @@ func _ready():
 	await get_tree().physics_frame
 	
 func _physics_process(_delta: float) -> void:
+	procesar_dano()
 	if player == null or not is_instance_valid(player): return
 	navigation_agent.target_position=player.global_position
 	if navigation_agent.is_navigation_finished():
@@ -17,6 +19,6 @@ func _physics_process(_delta: float) -> void:
 	velocity = direccion * velocidad_real
 	move_and_slide()
 
-
-func _on_area_dano_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"): body.recibir_dano(dano)
+func procesar_dano()->void:
+	for body in area_dano.get_overlapping_bodies():
+		if body.is_in_group("player"): body.recibir_dano(dano)
