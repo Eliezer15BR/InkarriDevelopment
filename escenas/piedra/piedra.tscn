@@ -78,6 +78,7 @@ animations = [{
 [node name="Piedra" type="Area2D" unique_id=1537495979 node_paths=PackedStringArray("sprite")]
 z_index = 1
 collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_xasnl")
 sprite = NodePath("AnimatedSprite2D")
 

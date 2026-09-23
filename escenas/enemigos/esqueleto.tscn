@@ -26,7 +26,7 @@ size = Vector2(25, 41)
 size = Vector2(25, 41)
 
 [node name="Esqueleto" type="CharacterBody2D" unique_id=150805884 node_paths=PackedStringArray("navigation_agent")]
-collision_layer = 15
+collision_layer = 8
 script = ExtResource("1_ys0f6")
 navigation_agent = NodePath("NavigationAgent2D")
 estadisticas = ExtResource("2_g2lda")
@@ -40,6 +40,7 @@ position = Vector2(-0.5, 3.5)
 shape = SubResource("RectangleShape2D_krxyo")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1314304847]
+path_desired_distance = 5.0
 
 [node name="AreaDano" type="Area2D" parent="." unique_id=1165251207]
 collision_layer = 0
