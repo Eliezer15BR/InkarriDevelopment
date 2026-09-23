@@ -29,7 +29,7 @@ func recibir_dano(cantidad:float):
 	var multiplicador_defensa: float=1.0-(defensa/100.0)
 	var dano_final: float=cantidad*multiplicador_defensa
 	if dano_final<=0: return
-	vida_actual=max(vida_actual,0)
+	vida_actual=max(vida_actual-dano_final,0)
 	vida_cambiada.emit(vida_actual,vida_maxima)
 	if vida_actual<=0: morir()
 

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var markerL: Marker2D
 @export var markerR: Marker2D
 @export var build: BuildResource
-@export var tiempo_invulnerabilidad: float = 5.0
+@export var tiempo_invulnerabilidad: float = 3.0
 signal vida_cambiada(vida_actual: float, vida_maxima: float)
 signal murio
 var invulnerable: bool = false
