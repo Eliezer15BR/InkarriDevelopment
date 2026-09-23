@@ -7,6 +7,7 @@ var impacto: bool =false
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 func lanzar(new_dir: Vector2,nuevo_dano:float) -> void:
+	sprite.play("default")
 	dano=nuevo_dano
 	direccion=new_dir.normalized()
 func _physics_process(delta: float) -> void:
