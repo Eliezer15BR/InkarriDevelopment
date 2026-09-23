@@ -48,7 +48,7 @@ position = Vector2(13, -2)
 
 [node name="AreaDano" type="Area2D" parent="." unique_id=1723772761]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano" unique_id=1576036653]
 position = Vector2(0, 2)

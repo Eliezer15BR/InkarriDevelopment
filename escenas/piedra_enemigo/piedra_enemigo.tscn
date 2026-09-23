@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://f153tgj67awp" path="res://escenas/piedra_enemigo/piedra_enemigo.gd" id="1_7xdbv"]
 [ext_resource type="Texture2D" uid="uid://c715whflpq5rd" path="res://sprites/misiles/Misil2.png" id="1_psege"]
+[ext_resource type="Texture2D" uid="uid://cl4g63nma6a5p" path="res://sprites/misiles/Misil5.png" id="3_f3nm0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psege"]
 radius = 6.0
@@ -22,6 +23,22 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("1_psege")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qog3l"]
+atlas = ExtResource("3_f3nm0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54u4r"]
+atlas = ExtResource("3_f3nm0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8vft"]
+atlas = ExtResource("3_f3nm0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hwvc"]
+atlas = ExtResource("3_f3nm0")
+region = Rect2(96, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hwhgx"]
 atlas = ExtResource("1_psege")
 region = Rect2(0, 32, 32, 32)
@@ -36,6 +53,22 @@ region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oq1ii"]
 atlas = ExtResource("1_psege")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4m73"]
+atlas = ExtResource("3_f3nm0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mmwb"]
+atlas = ExtResource("3_f3nm0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwvfv"]
+atlas = ExtResource("3_f3nm0")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui2sc"]
+atlas = ExtResource("3_f3nm0")
 region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_euaep"]
@@ -59,6 +92,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qog3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54u4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8vft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hwvc")
+}],
+"loop": 1,
+"name": &"default2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hwhgx")
 }, {
 "duration": 1.0,
@@ -73,6 +123,23 @@ animations = [{
 "loop": 1,
 "name": &"explotar",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4m73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mmwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwvfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui2sc")
+}],
+"loop": 1,
+"name": &"explotar2",
+"speed": 5.0
 }]
 
 [node name="PiedraEnemigo" type="Area2D" unique_id=1086124627 node_paths=PackedStringArray("sprite")]
@@ -87,4 +154,4 @@ shape = SubResource("CircleShape2D_psege")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1646669462]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_euaep")
-frame_progress = 0.7431031
+animation = &"explotar2"
