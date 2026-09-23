@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://f153tgj67awp" path="res://escenas/piedra_enemigo/piedra_enemigo.gd" id="2_godyh"]
 [ext_resource type="Texture2D" uid="uid://c715whflpq5rd" path="res://sprites/misiles/Misil2.png" id="3_knum5"]
 [ext_resource type="Texture2D" uid="uid://cl4g63nma6a5p" path="res://sprites/misiles/Misil5.png" id="4_f8eft"]
+[ext_resource type="Resource" uid="uid://nvtivk8l6ysv" path="res://recursos/enemigos/mago_stats.tres" id="5_knum5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psege"]
 radius = 6.0
@@ -236,6 +237,7 @@ proyectil = SubResource("PackedScene_3wfnx")
 boca = NodePath("Marker2D")
 area_dano = NodePath("Area2D")
 sprite = NodePath("AnimatedSprite2D")
+estadisticas = ExtResource("5_knum5")
 metadata/_custom_type_script = "uid://n4akxcay4bgx"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1713939016]
