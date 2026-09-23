@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cgv0s7ujhcg44"]
+
+[ext_resource type="Script" uid="uid://f153tgj67awp" path="res://escenas/piedra_enemigo/piedra_enemigo.gd" id="1_7xdbv"]
+[ext_resource type="Texture2D" uid="uid://c715whflpq5rd" path="res://sprites/misiles/Misil2.png" id="1_psege"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_psege"]
+radius = 13.152946
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xdbv"]
+atlas = ExtResource("1_psege")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3nm0"]
+atlas = ExtResource("1_psege")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8euoc"]
+atlas = ExtResource("1_psege")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiie4"]
+atlas = ExtResource("1_psege")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwhgx"]
+atlas = ExtResource("1_psege")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f85iq"]
+atlas = ExtResource("1_psege")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er364"]
+atlas = ExtResource("1_psege")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq1ii"]
+atlas = ExtResource("1_psege")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_euaep"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xdbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3nm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8euoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qiie4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwhgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f85iq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er364")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq1ii")
+}],
+"loop": 1,
+"name": &"explotar",
+"speed": 10.0
+}]
+
+[node name="PiedraEnemigo" type="Area2D" unique_id=1086124627]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_7xdbv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1253271727]
+shape = SubResource("CircleShape2D_psege")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1646669462]
+sprite_frames = SubResource("SpriteFrames_euaep")
+frame_progress = 0.046994533

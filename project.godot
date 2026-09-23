@@ -55,6 +55,7 @@ interactuar={
 2d_physics/layer_2="Jugador"
 2d_physics/layer_3="Piedra"
 2d_physics/layer_4="Enemigo"
+2d_physics/layer_5="ProyectilEnemigo"
 
 [physics]
 
