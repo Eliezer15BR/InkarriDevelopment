@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_yohny")
-nombre = "Esqeleto"
+nombre = "Esqueleto"
 vida = 180.0
 dano = 15.0
 defensa = 5.0
