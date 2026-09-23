@@ -86,7 +86,7 @@ func disparar() -> void:
 	var direccion: Vector2 = boca.global_position.direction_to(
 		player.global_position
 	)
-	nueva_piedra.lanzar(direccion, dano)
+	nueva_piedra.lanzar(direccion, dano,"default2","explotar2")
 	
 func procesar_dano_contacto() -> void:
 	for body in area_dano.get_overlapping_bodies():
