@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://jqac6ewqputn"]
+
+[ext_resource type="Script" uid="uid://dnrlclltaqu4k" path="res://escenas/enemigos/espiritu/espiritu.gd" id="1_21rlu"]
+[ext_resource type="Texture2D" uid="uid://1nac11ptlrcu" path="res://sprites/enemigos/espiritu.png" id="2_wodfb"]
+[ext_resource type="PackedScene" uid="uid://b3f2snxs60q48" path="res://escenas/piedra/piedra.tscn" id="2_ws1ih"]
+[ext_resource type="PackedScene" uid="uid://crxlfpymygxxj" path="res://escenas/enemigos/mago/mago.tscn" id="3_onlpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd01s"]
+atlas = ExtResource("2_wodfb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krxyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd01s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hql3"]
+size = Vector2(60, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
+size = Vector2(60, 61)
+
+[node name="Espiritu" type="CharacterBody2D" unique_id=89015182 node_paths=PackedStringArray("boca", "area_dano")]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_21rlu")
+proyectil = ExtResource("2_ws1ih")
+mago_scene = ExtResource("3_onlpu")
+boca = NodePath("Marker2D")
+area_dano = NodePath("AreaDano")
+metadata/_custom_type_script = "uid://n4akxcay4bgx"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1449309565]
+sprite_frames = SubResource("SpriteFrames_krxyo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=503335458]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_1hql3")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=914465521]
+position = Vector2(-6, -4)
+
+[node name="AreaDano" type="Area2D" parent="." unique_id=2021352618]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano" unique_id=1858981835]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_krxyo")
