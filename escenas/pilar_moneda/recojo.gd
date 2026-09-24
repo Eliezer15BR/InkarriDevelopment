@@ -1,6 +1,7 @@
 extends Area2D
-
+@export var animacion: AnimatedSprite2D
 func _ready() -> void:
+	animacion.play("default")
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 

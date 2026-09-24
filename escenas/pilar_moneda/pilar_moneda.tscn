@@ -1,64 +1,16 @@
 [gd_scene format=3 uid="uid://btr8jrpr7nlen"]
 
 [ext_resource type="Texture2D" uid="uid://b2ye6qiu7ixy6" path="res://sprites/objects/pilar.png" id="1_85jqp"]
-[ext_resource type="Texture2D" uid="uid://b8ens8wmhx7fw" path="res://sprites/objects/moneda.png" id="2_6ir1p"]
 [ext_resource type="Script" uid="uid://do7ibuvnae4f3" path="res://escenas/pilar_moneda/recojo.gd" id="3_6ir1p"]
+[ext_resource type="Texture2D" uid="uid://ci5o6hp2u5pii" path="res://sprites/objects/moneda2.png" id="3_s6rlr"]
 
 [sub_resource type="Animation" id="Animation_85jqp"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Recojo/Moneda:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Recojo/Moneda:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -28)]
-}
 
 [sub_resource type="Animation" id="Animation_6ir1p"]
 resource_name = "rotar"
 length = 3.0
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Recojo/Moneda:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.6, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(-1, 1), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Recojo/Moneda:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.46666667, 1.0333333, 1.59),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -28), Vector2(0, -24), Vector2(0, -25)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s6rlr"]
 _data = {
@@ -71,6 +23,49 @@ size = Vector2(22, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hql3"]
 size = Vector2(52, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3sh2"]
+atlas = ExtResource("3_s6rlr")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soojv"]
+atlas = ExtResource("3_s6rlr")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hpbv"]
+atlas = ExtResource("3_s6rlr")
+region = Rect2(50, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3fk0"]
+atlas = ExtResource("3_s6rlr")
+region = Rect2(75, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x75no"]
+atlas = ExtResource("3_s6rlr")
+region = Rect2(100, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krxyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3sh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soojv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hpbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3fk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x75no")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="PilarMoneda" type="Node2D" unique_id=108227599]
 
@@ -89,15 +84,17 @@ z_index = 2
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_krxyo")
 
-[node name="Recojo" type="Area2D" parent="." unique_id=1816766957]
+[node name="Recojo" type="Area2D" parent="." unique_id=1816766957 node_paths=PackedStringArray("animacion")]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("3_6ir1p")
-
-[node name="Moneda" type="Sprite2D" parent="Recojo" unique_id=121727602]
-position = Vector2(0, -28)
-texture = ExtResource("2_6ir1p")
+animacion = NodePath("AnimatedSprite2D")
 
 [node name="DetectPlayer" type="CollisionShape2D" parent="Recojo" unique_id=732457688]
 position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_1hql3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Recojo" unique_id=28180324]
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_krxyo")
+frame_progress = 0.0516549
