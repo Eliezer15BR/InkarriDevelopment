@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://jqac6ewqputn"]
 
 [ext_resource type="Script" uid="uid://dnrlclltaqu4k" path="res://escenas/enemigos/espiritu/espiritu.gd" id="1_21rlu"]
+[ext_resource type="PackedScene" uid="uid://cgv0s7ujhcg44" path="res://escenas/piedra_enemigo/piedra_enemigo.tscn" id="2_onlpu"]
 [ext_resource type="Texture2D" uid="uid://1nac11ptlrcu" path="res://sprites/enemigos/espiritu.png" id="2_wodfb"]
-[ext_resource type="PackedScene" uid="uid://b3f2snxs60q48" path="res://escenas/piedra/piedra.tscn" id="2_ws1ih"]
 [ext_resource type="PackedScene" uid="uid://crxlfpymygxxj" path="res://escenas/enemigos/mago/mago.tscn" id="3_onlpu"]
+[ext_resource type="Resource" uid="uid://ik7pliqlm7sk" path="res://recursos/enemigos/espiritu_stats.tres" id="4_onlpu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rd01s"]
 atlas = ExtResource("2_wodfb")
@@ -30,10 +31,11 @@ size = Vector2(60, 61)
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_21rlu")
-proyectil = ExtResource("2_ws1ih")
+proyectil = ExtResource("2_onlpu")
 mago_scene = ExtResource("3_onlpu")
 boca = NodePath("Marker2D")
 area_dano = NodePath("AreaDano")
+estadisticas = ExtResource("4_onlpu")
 metadata/_custom_type_script = "uid://n4akxcay4bgx"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1449309565]
