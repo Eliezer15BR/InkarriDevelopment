@@ -3,7 +3,7 @@ class_name  EnemyBase
 signal vida_cambiada(vida_actual:float, vida_maxima:float)
 signal murio(enemigo: EnemyBase)
 @export var estadisticas: EnemyStatsResource
-@export var animacion: AnimatedSprite2D
+const SPAWN_FX=preload("res://escenas/spawn_fx/spawn_fx.tscn")
 const PIXELS_PER_MOVEMENT: float=25.0
 var vida_maxima:float
 var vida_actual:float
@@ -11,11 +11,10 @@ var velocidad_movimiento: float
 var defensa:float
 var velocidad_real:float
 var dano: float
+var activo:bool=false
 func _ready():
-	#animacion=$AnimatedSprite2D
-	#animacion.play('default')
-	#await get_tree().create_timer(2.0).timeout
 	aplicar_estadisticas()
+	iniciar_aparicion()
 	
 func aplicar_estadisticas():
 	if estadisticas==null:
@@ -41,3 +40,15 @@ func recibir_dano(cantidad:float):
 func morir():
 	murio.emit(self)
 	queue_free()
+
+func iniciar_aparicion():
+	activo=false
+	set_physics_process(false)
+	var efecto=SPAWN_FX.instantiate()
+	get_parent().add_child(efecto)
+	efecto.global_position=global_position
+	var sprite_efecto:AnimatedSprite2D=efecto.get_node("AnimatedSprite2D")
+	await sprite_efecto.animation_finished
+	efecto.queue_free()
+	activo=true
+	set_physics_process(true)
