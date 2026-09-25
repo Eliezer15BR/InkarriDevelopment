@@ -3,6 +3,17 @@
 [ext_resource type="Script" uid="uid://ccs1r6epo07nu" path="res://escenas/datos_jugador/datos_jugador.gd" id="1_4vt3b"]
 [ext_resource type="Texture2D" uid="uid://d4h58sjew5tb6" path="res://moneda.png" id="1_hfk8o"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vt3b"]
+bg_color = Color(0.59607846, 0.7921569, 0.5372549, 0.6313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x403f"]
+bg_color = Color(0.4518594, 0.8638629, 0.16283128, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.91164225, 0.92320293, 1)
+
 [node name="DatosJugador" type="Control" unique_id=219206262 node_paths=PackedStringArray("label_monedas", "barra_vida", "label_vida")]
 layout_mode = 3
 anchors_preset = 15
@@ -12,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4vt3b")
 label_monedas = NodePath("LabMonedas")
-barra_vida = NodePath("ProgressBar")
+barra_vida = NodePath("BarraVida")
 label_vida = NodePath("LabelVida")
 
 [node name="LabMonedas" type="Label" parent="." unique_id=886687422]
@@ -30,16 +41,18 @@ offset_bottom = 500.0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_hfk8o")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1568815881]
-layout_mode = 0
-offset_left = 233.0
-offset_top = 3.0
-offset_right = 237.0
-offset_bottom = 30.0
-
 [node name="LabelVida" type="Label" parent="." unique_id=688045816]
 layout_mode = 0
-offset_left = 110.0
-offset_top = -2.0
-offset_right = 150.0
-offset_bottom = 21.0
+offset_left = 191.0
+offset_top = 4.0
+offset_right = 231.0
+offset_bottom = 27.0
+
+[node name="BarraVida" type="ProgressBar" parent="." unique_id=1566564910]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 1.0
+offset_right = 183.0
+offset_bottom = 32.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4vt3b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x403f")
