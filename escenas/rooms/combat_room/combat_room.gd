@@ -1,11 +1,14 @@
 extends RoomBase
+@export var enemigos:Node2D
+var enemigos_vivos:int=0
+func _ready()->void:
+	super._ready()
+	for enemigo in enemigos.get_children():
+		if enemigo is EnemyBase:
+			enemigos_vivos+=1
+			enemigo.murio.connect(_on_enemigo_murio)
+		if enemigos_vivos==0: resolver_sala()
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_enemigo_murio(_enemigo:EnemyBase)->void:
+	enemigos_vivos-=1
+	if enemigos_vivos<=0: resolver_sala()
