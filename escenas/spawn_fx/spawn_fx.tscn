@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cfoabdmowxnwr"]
 
 [ext_resource type="Texture2D" uid="uid://cm6t6fp0d1i3c" path="res://sprites/enemigos/humo1.png" id="1_n2qsf"]
-[ext_resource type="Script" uid="uid://canhoraidmxef" path="res://escenas/spawn_fx/spawn_fx.gd" id="1_xnboc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnboc"]
 atlas = ExtResource("1_n2qsf")
@@ -50,12 +49,12 @@ animations = [{
 }],
 "loop": 0,
 "name": &"default",
-"speed": 5.0
+"speed": 9.0
 }]
 
-[node name="SpawnFX" type="Node2D" unique_id=1226285724 node_paths=PackedStringArray("animacion")]
-script = ExtResource("1_xnboc")
-animacion = NodePath("AnimatedSprite2D")
+[node name="SpawnFX" type="Node2D" unique_id=1226285724]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=833518575]
 sprite_frames = SubResource("SpriteFrames_krxyo")
+frame = 5
+frame_progress = 1.0

@@ -44,14 +44,15 @@ func morir():
 func iniciar_aparicion() -> void:
 	activo = false
 	set_physics_process(false)
-
 	var efecto = SPAWN_FX.instantiate()
-	get_parent().add_child(efecto)
+	get_parent().add_child.call_deferred(efecto)
+	await efecto.ready
 	efecto.global_position = global_position
-
-	await get_tree().create_timer(1.5).timeout
-
+	var animacion_efecto: AnimatedSprite2D = efecto.get_node(
+		"AnimatedSprite2D"
+	)
+	animacion_efecto.play("default")
+	await animacion_efecto.animation_finished
 	efecto.queue_free()
-
 	activo = true
 	set_physics_process(true)
