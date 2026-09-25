@@ -59,5 +59,3 @@ animacion = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=833518575]
 sprite_frames = SubResource("SpriteFrames_krxyo")
-frame = 5
-frame_progress = 1.0
