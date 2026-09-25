@@ -21,10 +21,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhc5n"]
-size = Vector2(42, 44)
+size = Vector2(64, 66)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hql3"]
-size = Vector2(42, 44)
+size = Vector2(64, 66)
 
 [node name="Planta" type="CharacterBody2D" unique_id=1744179742 node_paths=PackedStringArray("boca", "area_dano")]
 collision_layer = 8
@@ -37,19 +37,20 @@ estadisticas = ExtResource("2_q3xni")
 metadata/_custom_type_script = "uid://n4akxcay4bgx"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1174488731]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_krxyo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=501396259]
-position = Vector2(0, 2)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_xhc5n")
 
 [node name="Boca" type="Marker2D" parent="." unique_id=1805285701]
-position = Vector2(13, -2)
+position = Vector2(18, -4)
 
 [node name="AreaDano" type="Area2D" parent="." unique_id=1723772761]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano" unique_id=1576036653]
-position = Vector2(0, 2)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_1hql3")
