@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bji7jvd0o4h6s"]
+
+[ext_resource type="Script" uid="uid://bw0ommpuguwny" path="res://room_base.gd" id="1_uybe5"]
+[ext_resource type="PackedScene" uid="uid://cgdmvf5o1pplf" path="res://escenas/portal/portal.tscn" id="2_ov7q5"]
+
+[node name="RoomBase" type="Node2D" unique_id=568286233]
+script = ExtResource("1_uybe5")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=16920102]
+
+[node name="Portales" type="Node2D" parent="." unique_id=801564481]
+
+[node name="Portal1" parent="Portales" unique_id=1459220912 instance=ExtResource("2_ov7q5")]
+
+[node name="Portal2" parent="Portales" unique_id=2136096158 instance=ExtResource("2_ov7q5")]
+
+[node name="Portal3" parent="Portales" unique_id=1361417100 instance=ExtResource("2_ov7q5")]
