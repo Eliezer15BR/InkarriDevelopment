@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bji7jvd0o4h6s"]
 
-[ext_resource type="Script" uid="uid://cyhtmsxe0kmc7" path="res://room_base.gd" id="1_uybe5"]
+[ext_resource type="Script" uid="uid://cyhtmsxe0kmc7" path="res://escenas/rooms/room_base/room_base.gd" id="1_uybe5"]
 [ext_resource type="PackedScene" uid="uid://cgdmvf5o1pplf" path="res://escenas/portal/portal.tscn" id="2_ov7q5"]
 
 [node name="RoomBase" type="Node2D" unique_id=568286233 node_paths=PackedStringArray("portales")]
