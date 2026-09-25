@@ -1,14 +1,64 @@
 [gd_scene format=3 uid="uid://dys52o572ce0n"]
 
 [ext_resource type="Script" uid="uid://n4akxcay4bgx" path="res://enemy_base.gd" id="1_dound"]
+[ext_resource type="Texture2D" uid="uid://cm6t6fp0d1i3c" path="res://sprites/enemigos/humo1.png" id="2_nuydb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dound"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sohqn"]
+atlas = ExtResource("2_nuydb")
+region = Rect2(0, 0, 64, 64)
 
-[node name="EnemyBase" type="CharacterBody2D" unique_id=1521531238]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucl4g"]
+atlas = ExtResource("2_nuydb")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqc77"]
+atlas = ExtResource("2_nuydb")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cs8o"]
+atlas = ExtResource("2_nuydb")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ounwc"]
+atlas = ExtResource("2_nuydb")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h1vy"]
+atlas = ExtResource("2_nuydb")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dound"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sohqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucl4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqc77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cs8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ounwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h1vy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=1521531238 node_paths=PackedStringArray("animacion")]
 collision_layer = 15
 script = ExtResource("1_dound")
+animacion = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389839834]
 shape = SubResource("RectangleShape2D_krxyo")

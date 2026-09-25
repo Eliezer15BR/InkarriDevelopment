@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cgdmvf5o1pplf"]
+
+[ext_resource type="Script" uid="uid://cjlutq7b4xifc" path="res://escenas/start_room/portal.gd" id="1_q2s7w"]
+[ext_resource type="Texture2D" uid="uid://dtkr8yjh3k32c" path="res://sprites/objects/portal.png" id="2_k1myc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
+size = Vector2(49, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqts6"]
+atlas = ExtResource("2_k1myc")
+region = Rect2(0, 0, 50, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krxyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqts6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Portal" type="Area2D" unique_id=1459220912]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_q2s7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1348536598]
+position = Vector2(-0.5, 282.5)
+shape = SubResource("RectangleShape2D_krxyo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=98295781]
+position = Vector2(0, 288)
+sprite_frames = SubResource("SpriteFrames_krxyo")

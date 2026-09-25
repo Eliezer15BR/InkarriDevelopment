@@ -3,6 +3,7 @@ class_name  EnemyBase
 signal vida_cambiada(vida_actual:float, vida_maxima:float)
 signal murio(enemigo: EnemyBase)
 @export var estadisticas: EnemyStatsResource
+@export var animacion: AnimatedSprite2D
 const PIXELS_PER_MOVEMENT: float=25.0
 var vida_maxima:float
 var vida_actual:float
@@ -11,7 +12,11 @@ var defensa:float
 var velocidad_real:float
 var dano: float
 func _ready():
+	#animacion=$AnimatedSprite2D
+	#animacion.play('default')
+	#await get_tree().create_timer(2.0).timeout
 	aplicar_estadisticas()
+	
 func aplicar_estadisticas():
 	if estadisticas==null:
 		push_error("El enemigo no tiene stats")
