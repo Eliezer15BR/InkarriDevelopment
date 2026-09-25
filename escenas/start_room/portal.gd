@@ -14,5 +14,10 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.quitar_interactuable(self)
+		
 func interactuar(_player: CharacterBody2D)->void:
 	transporte.emit(nivel_destino)
+
+func set_activo(valor:bool)->void:
+	visible=valor
+	monitoring=valor
