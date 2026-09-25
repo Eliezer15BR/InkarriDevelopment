@@ -14,7 +14,7 @@ func resolver_sala()->void:
 	if resuelta: return
 	resuelta=true
 	sala_resuelta.emit()
-	for portal in portales.get_childre(): portal.set_activo(true)
+	for portal in portales.get_children(): portal.set_activo(true)
  
 func _on_portal_usado(_nivel:int)->void:
 	portal_elegido.emit()

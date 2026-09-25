@@ -7,7 +7,7 @@
 script = ExtResource("1_uybe5")
 portales = NodePath("Portales")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=16920102]
+[node name="PlayerSpawn" type="Marker2D" parent="." unique_id=16920102]
 
 [node name="Portales" type="Node2D" parent="." unique_id=801564481]
 

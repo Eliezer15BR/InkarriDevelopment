@@ -7,7 +7,7 @@ func _ready()->void:
 		if enemigo is EnemyBase:
 			enemigos_vivos+=1
 			enemigo.murio.connect(_on_enemigo_murio)
-		if enemigos_vivos==0: resolver_sala()
+	if enemigos_vivos==0: resolver_sala()
 
 func _on_enemigo_murio(_enemigo:EnemyBase)->void:
 	enemigos_vivos-=1
