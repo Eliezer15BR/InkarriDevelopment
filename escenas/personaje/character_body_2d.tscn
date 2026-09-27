@@ -173,3 +173,9 @@ limit_smoothed = true
 
 [node name="Contador" parent="CanvasLayer" unique_id=219206262 node_paths=PackedStringArray("player") instance=ExtResource("5_5gj2m")]
 player = NodePath("../..")
+
+[node name="EnemyTargetL" type="Marker2D" parent="." unique_id=861870649]
+position = Vector2(-30, 0)
+
+[node name="EnemyTargetR" type="Marker2D" parent="." unique_id=991006152]
+position = Vector2(30, 0)
