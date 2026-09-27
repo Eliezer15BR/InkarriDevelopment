@@ -175,7 +175,7 @@ limit_smoothed = true
 player = NodePath("../..")
 
 [node name="EnemyTargetL" type="Marker2D" parent="." unique_id=861870649]
-position = Vector2(-30, 0)
+position = Vector2(-14, -13)
 
 [node name="EnemyTargetR" type="Marker2D" parent="." unique_id=991006152]
-position = Vector2(30, 0)
+position = Vector2(15, 16)
