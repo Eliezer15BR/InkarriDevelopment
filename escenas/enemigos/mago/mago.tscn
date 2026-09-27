@@ -228,13 +228,14 @@ size = Vector2(26, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
 size = Vector2(27, 34)
 
-[node name="Mago" type="CharacterBody2D" unique_id=1345919423 node_paths=PackedStringArray("navigation_agent", "boca", "area_dano", "sprite")]
+[node name="Mago" type="CharacterBody2D" unique_id=1345919423 node_paths=PackedStringArray("navigation_agent", "boca", "boca2", "area_dano", "sprite")]
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_hyyy8")
 navigation_agent = NodePath("NavigationAgent2D")
 proyectil = SubResource("PackedScene_3wfnx")
 boca = NodePath("Marker2D")
+boca2 = NodePath("Marker2D2")
 area_dano = NodePath("Area2D")
 sprite = NodePath("AnimatedSprite2D")
 estadisticas = ExtResource("5_knum5")
@@ -243,6 +244,7 @@ metadata/_custom_type_script = "uid://n4akxcay4bgx"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1713939016]
 sprite_frames = SubResource("SpriteFrames_krxyo")
 animation = &"idle"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1842958586]
 visible = false
@@ -250,6 +252,10 @@ position = Vector2(1, 6)
 shape = SubResource("RectangleShape2D_5cfb8")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1528051473]
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=736752522]
+z_as_relative = false
+position = Vector2(-15, 0)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=811879994]
 position = Vector2(14, -3)

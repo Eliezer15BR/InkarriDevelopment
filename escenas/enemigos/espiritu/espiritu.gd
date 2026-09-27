@@ -4,9 +4,9 @@ extends EnemyBase
 @export var boca: Marker2D
 @export var area_dano: Area2D
 @export var puntos_teletransporte: Node2D
-@export var intervalo_ciclo: float = 1.0
+@export var intervalo_ciclo: float = 2.0
 @export var retraso_segundo_mago: float = 0.3
-@export var max_magos_invocados: int = 6
+@export var max_magos_invocados: int = 4
 @export var distancia_invocacion: float = 50.0
 @export var animacion_proyectil: StringName = &"default"
 @export var animacion_explosion: StringName = &"explotar"

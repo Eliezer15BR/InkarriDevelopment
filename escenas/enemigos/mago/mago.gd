@@ -8,11 +8,13 @@ enum Estado {
 @export var navigation_agent: NavigationAgent2D
 @export var proyectil: PackedScene
 @export var boca: Marker2D
+@export var boca2: Marker2D
 @export var area_dano: Area2D
 @export var sprite:AnimatedSprite2D
 @export var distancia_objetivo: float = 180.0
 @export var multiplicador_huida: float = 1.5
-@export var tiempo_espera: float = 0.5
+@export var tiempo_espera: float = 1.1
+var boca_actual:Marker2D=boca
 var player: CharacterBody2D = null
 var estado: Estado = Estado.HUIR
 var tiempo_estado: float = 0.0
@@ -38,6 +40,12 @@ func _physics_process(delta: float) -> void:
 		Estado.DISPARAR:
 			disparar()
 			cambiar_estado(Estado.HUIR)
+	if velocity.x>=0:
+		boca_actual=boca
+		sprite.flip_h=false
+	else:
+		boca_actual=boca2
+		sprite.flip_h=true
 	move_and_slide()
 	
 func procesar_huida() -> void:
@@ -82,8 +90,8 @@ func cambiar_estado(nuevo_estado: Estado) -> void:
 func disparar() -> void:
 	var nueva_piedra = proyectil.instantiate()
 	get_tree().current_scene.add_child(nueva_piedra)
-	nueva_piedra.global_position = boca.global_position
-	var direccion: Vector2 = boca.global_position.direction_to(
+	nueva_piedra.global_position = boca_actual.global_position
+	var direccion: Vector2 = boca_actual.global_position.direction_to(
 		player.global_position
 	)
 	nueva_piedra.lanzar(direccion, dano,"default2","explotar2")
