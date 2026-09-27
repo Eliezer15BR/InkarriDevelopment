@@ -4,41 +4,111 @@
 [ext_resource type="Resource" uid="uid://dmr85nevc3pk8" path="res://recursos/enemigos/esqueleto_stats.tres" id="2_g2lda"]
 [ext_resource type="Texture2D" uid="uid://cjtjshci76urm" path="res://sprites/enemigos/esqueleto.png" id="3_g2lda"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5okov"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2lda"]
 atlas = ExtResource("3_g2lda")
 region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5okov"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc8bg"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onnp1"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bvar"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c433b"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv732"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui7lp"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oogrf"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frlf6"]
+atlas = ExtResource("3_g2lda")
+region = Rect2(192, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1hql3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_g2lda")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_5okov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hc8bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onnp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bvar")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c433b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv732")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui7lp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oogrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frlf6")
+}],
+"loop": 1,
+"name": &"go_up",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
-size = Vector2(50, 83)
+size = Vector2(41, 69)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hql3"]
-size = Vector2(50, 83)
+size = Vector2(41, 69)
 
-[node name="Esqueleto" type="CharacterBody2D" unique_id=150805884 node_paths=PackedStringArray("navigation_agent", "area_dano")]
+[node name="Esqueleto" type="CharacterBody2D" unique_id=150805884 node_paths=PackedStringArray("navigation_agent", "area_dano", "animacion")]
 collision_layer = 8
 script = ExtResource("1_ys0f6")
 navigation_agent = NodePath("NavigationAgent2D")
 area_dano = NodePath("AreaDano")
+animacion = NodePath("AnimatedSprite2D")
 estadisticas = ExtResource("2_g2lda")
 metadata/_custom_type_script = "uid://n4akxcay4bgx"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=885385206]
-scale = Vector2(2, 2)
+scale = Vector2(1.7, 1.7)
 sprite_frames = SubResource("SpriteFrames_1hql3")
+frame_progress = 0.17155571
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1132608687]
-position = Vector2(-1, 4.5)
+position = Vector2(-0.5, 4.5)
 shape = SubResource("RectangleShape2D_krxyo")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1314304847]
@@ -49,5 +119,5 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano" unique_id=1555295426]
-position = Vector2(-1, 4.5)
+position = Vector2(-0.5, 4.5)
 shape = SubResource("RectangleShape2D_1hql3")

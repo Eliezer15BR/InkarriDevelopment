@@ -9,11 +9,46 @@
 atlas = ExtResource("2_0nl6q")
 region = Rect2(0, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_702uw"]
+atlas = ExtResource("2_0nl6q")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs3ht"]
+atlas = ExtResource("2_0nl6q")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1o13"]
+atlas = ExtResource("2_0nl6q")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmrtm"]
+atlas = ExtResource("2_0nl6q")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5kgn"]
+atlas = ExtResource("2_0nl6q")
+region = Rect2(192, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_krxyo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_q3xni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_702uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs3ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1o13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmrtm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5kgn")
 }],
 "loop": 1,
 "name": &"default",
@@ -26,12 +61,14 @@ size = Vector2(64, 66)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hql3"]
 size = Vector2(64, 66)
 
-[node name="Planta" type="CharacterBody2D" unique_id=1744179742 node_paths=PackedStringArray("boca", "area_dano")]
+[node name="Planta" type="CharacterBody2D" unique_id=1744179742 node_paths=PackedStringArray("animacion", "boca", "boca2", "area_dano")]
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("1_0nl6q")
+animacion = NodePath("AnimatedSprite2D")
 proyectil = ExtResource("2_a0cuo")
 boca = NodePath("Boca")
+boca2 = NodePath("Boca2")
 area_dano = NodePath("AreaDano")
 estadisticas = ExtResource("2_q3xni")
 metadata/_custom_type_script = "uid://n4akxcay4bgx"
@@ -39,15 +76,20 @@ metadata/_custom_type_script = "uid://n4akxcay4bgx"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1174488731]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_krxyo")
+frame_progress = 0.20485419
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=501396259]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_xhc5n")
 
+[node name="Boca2" type="Marker2D" parent="." unique_id=280554480]
+position = Vector2(-17, -3)
+
 [node name="Boca" type="Marker2D" parent="." unique_id=1805285701]
 position = Vector2(18, -4)
 
 [node name="AreaDano" type="Area2D" parent="." unique_id=1723772761]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
