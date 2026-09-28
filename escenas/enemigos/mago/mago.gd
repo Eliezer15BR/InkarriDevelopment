@@ -13,7 +13,7 @@ enum Estado {
 @export var sprite:AnimatedSprite2D
 @export var distancia_objetivo: float = 180.0
 @export var multiplicador_huida: float = 1.5
-@export var tiempo_espera: float = 1.1
+@export var tiempo_espera: float = 1.3
 var boca_actual:Marker2D=boca
 var player: CharacterBody2D = null
 var estado: Estado = Estado.HUIR

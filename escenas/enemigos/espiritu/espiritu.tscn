@@ -22,10 +22,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hql3"]
-size = Vector2(60, 61)
+size = Vector2(89, 91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]
-size = Vector2(60, 61)
+size = Vector2(89, 91)
 
 [node name="Espiritu" type="CharacterBody2D" unique_id=89015182 node_paths=PackedStringArray("boca", "area_dano")]
 collision_layer = 8
@@ -39,19 +39,20 @@ estadisticas = ExtResource("4_onlpu")
 metadata/_custom_type_script = "uid://n4akxcay4bgx"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1449309565]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_krxyo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=503335458]
-position = Vector2(1, 0.5)
+position = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_1hql3")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=914465521]
-position = Vector2(-6, -4)
+position = Vector2(-15, -11)
 
 [node name="AreaDano" type="Area2D" parent="." unique_id=2021352618]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDano" unique_id=1858981835]
-position = Vector2(1, 0.5)
+position = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_krxyo")

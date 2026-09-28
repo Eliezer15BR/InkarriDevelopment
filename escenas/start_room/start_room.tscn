@@ -47,6 +47,7 @@ rendering_quadrant_size = 25
 physics_quadrant_size = 25
 
 [node name="Portal" parent="." unique_id=1459220912 instance=ExtResource("4_jgv78")]
-position = Vector2(0, 284)
+position = Vector2(0, 287)
+rotation = 3.1415927
 
 [node name="PlayerSpawn" type="Marker2D" parent="." unique_id=1165819342]

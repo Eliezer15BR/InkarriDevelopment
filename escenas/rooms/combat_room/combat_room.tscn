@@ -56,14 +56,15 @@ tile_set = SubResource("TileSet_krxyo")
 
 [node name="Portal1" parent="Portales" parent_id_path=PackedInt32Array(801564481) index="0" unique_id=1459220912]
 position = Vector2(0, 286)
+rotation = -3.1415927
 
 [node name="Portal2" parent="Portales" parent_id_path=PackedInt32Array(801564481) index="1" unique_id=2136096158]
 position = Vector2(537, -2)
-rotation = -1.5707964
+rotation = 1.5707964
 
 [node name="Portal3" parent="Portales" parent_id_path=PackedInt32Array(801564481) index="2" unique_id=1361417100]
 position = Vector2(-538, -1)
-rotation = 1.5707964
+rotation = -1.5707964
 
 [node name="Enemigos" type="Node2D" parent="." index="4" unique_id=1607861163]
 position = Vector2(-4, -80)
