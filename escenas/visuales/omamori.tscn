@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://g30q7ovlblof" path="res://sprites/objects/Omamori1.png" id="1_7j1up"]
 
 [sub_resource type="Animation" id="Animation_7j1up"]
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,6 +19,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_8swm6"]
 resource_name = "default"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,7 +43,9 @@ _data = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1569216657]
 libraries/ = SubResource("AnimationLibrary_17b6a")
+autoplay = &"RESET"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1378918596]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_7j1up")
+offset = Vector2(0, -50)
