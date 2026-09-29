@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgdmvf5o1pplf"]
 
-[ext_resource type="Script" uid="uid://cjlutq7b4xifc" path="res://escenas/start_room/portal.gd" id="1_q2s7w"]
+[ext_resource type="Script" uid="uid://cjlutq7b4xifc" path="res://escenas/rooms/start_room/portal.gd" id="1_q2s7w"]
 [ext_resource type="Texture2D" uid="uid://dtkr8yjh3k32c" path="res://sprites/objects/portal.png" id="2_k1myc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_krxyo"]

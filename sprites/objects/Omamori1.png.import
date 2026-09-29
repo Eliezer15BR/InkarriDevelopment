@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmtcj3trov6aj"
-path="res://.godot/imported/personaje1.png-2c4a0c9057837c2c6dd4095a4761a8e1.ctex"
+uid="uid://g30q7ovlblof"
+path="res://.godot/imported/Omamori1.png-db4786d2b3b0a6489e0dc887e6de6be8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personaje1.png"
-dest_files=["res://.godot/imported/personaje1.png-2c4a0c9057837c2c6dd4095a4761a8e1.ctex"]
+source_file="res://sprites/objects/Omamori1.png"
+dest_files=["res://.godot/imported/Omamori1.png-db4786d2b3b0a6489e0dc887e6de6be8.ctex"]
 
 [params]
 

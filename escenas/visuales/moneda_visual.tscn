@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://uxxbhntpikxt"]
+
+[ext_resource type="Texture2D" uid="uid://ci5o6hp2u5pii" path="res://sprites/objects/moneda2.png" id="1_k00uv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3sh2"]
+atlas = ExtResource("1_k00uv")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soojv"]
+atlas = ExtResource("1_k00uv")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hpbv"]
+atlas = ExtResource("1_k00uv")
+region = Rect2(50, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3fk0"]
+atlas = ExtResource("1_k00uv")
+region = Rect2(75, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x75no"]
+atlas = ExtResource("1_k00uv")
+region = Rect2(100, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ed6tx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3sh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soojv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hpbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3fk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x75no")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MonedaVisual" type="Node2D" unique_id=1081861027]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=134097437]
+position = Vector2(0, -25)
+sprite_frames = SubResource("SpriteFrames_ed6tx")
+autoplay = "default"

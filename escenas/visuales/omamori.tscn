@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ca3peyq4yum36"]
+
+[ext_resource type="Texture2D" uid="uid://g30q7ovlblof" path="res://sprites/objects/Omamori1.png" id="1_7j1up"]
+
+[sub_resource type="Animation" id="Animation_7j1up"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.76666665, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8swm6"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_17b6a"]
+_data = {
+&"RESET": SubResource("Animation_7j1up"),
+&"default": SubResource("Animation_8swm6")
+}
+
+[node name="Omamori" type="Node2D" unique_id=1982022826]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1569216657]
+libraries/ = SubResource("AnimationLibrary_17b6a")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1378918596]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7j1up")
