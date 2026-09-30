@@ -11,9 +11,14 @@
 
 [node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player")]
 script = ExtResource("1_wxkds")
-niveles = Array[PackedScene]([ExtResource("2_ccs1q"), ExtResource("8_0riwj"), ExtResource("3_ra52p"), ExtResource("4_qbdva"), ExtResource("3_ra52p"), ExtResource("5_xkjmt"), ExtResource("4_i0n2k")])
 room_container = NodePath("RoomContainer")
 player = NodePath("CharacterBody2D")
+start_room = ExtResource("2_ccs1q")
+boss_room = ExtResource("4_i0n2k")
+combat_room = ExtResource("3_ra52p")
+skeleton_room = ExtResource("4_qbdva")
+plant_room = ExtResource("5_xkjmt")
+item_room = ExtResource("8_0riwj")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=80319903]
 
