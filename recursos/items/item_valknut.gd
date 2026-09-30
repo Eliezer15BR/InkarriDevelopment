@@ -72,3 +72,4 @@ func _actualizar_player(player: CharacterBody2D) -> void:
 		player.vida_actual,
 		player.vida_maxima
 	)
+	player.estadisticas_cambiadas.emit()

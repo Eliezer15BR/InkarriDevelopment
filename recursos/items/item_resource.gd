@@ -12,3 +12,4 @@ class_name ItemResource
 func aplicar(player: CharacterBody2D) -> void:
 	player.defensa = max(player.defensa * 1.5, player.defensa + 3.0)
 	player.fortuna += fortuna_extra
+	player.estadisticas_cambiadas.emit()

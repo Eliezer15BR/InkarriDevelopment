@@ -16,7 +16,7 @@ extends Control
 func _ready() -> void:
 	player.monedas_sign.connect(actualizar_monedas)
 	player.vida_cambiada.connect(actualizar_vida)
-
+	player.estadisticas_cambiadas.connect(actualizar_estadisticas)
 	actualizar_monedas(player.monedas)
 	actualizar_vida(player.vida_actual, player.vida_maxima)
 	actualizar_estadisticas()

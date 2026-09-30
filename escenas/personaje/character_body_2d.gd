@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var build: BuildResource
 @export var tiempo_invulnerabilidad: float = 3.0
 signal vida_cambiada(vida_actual: float, vida_maxima: float)
+signal estadisticas_cambiadas
 signal murio
 var invulnerable: bool = false
 var tiempo_entre_disparos: float= 1.0
@@ -100,6 +101,7 @@ func aplicar_build(nueva_build: BuildResource)->void:
 	if velocidad_ataque > 0:
 		tiempo_entre_disparos=1.0/velocidad_ataque
 	vida_cambiada.emit(vida_actual,vida_maxima)
+	estadisticas_cambiadas.emit()
 	
 func recibir_dano(cantidad:float) -> void:
 	if invulnerable or vida_actual<=0:
