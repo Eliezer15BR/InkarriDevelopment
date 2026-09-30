@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RecompensaBuild" format=3 uid="uid://bsu8sf16gpxru"]
+
+[ext_resource type="Resource" uid="uid://dhffaoux07r3c" path="res://recursos/builds/build_base.tres" id="1_id5oo"]
+[ext_resource type="Script" uid="uid://b0venkd6k1fpo" path="res://recursos/recompensas/recompensa_build.gd" id="1_lityu"]
+
+[resource]
+script = ExtResource("1_lityu")
+build = ExtResource("1_id5oo")
+metadata/_custom_type_script = "uid://b0venkd6k1fpo"

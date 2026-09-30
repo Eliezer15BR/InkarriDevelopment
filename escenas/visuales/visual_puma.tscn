@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://1iruyra5cpm1"]
+
+[ext_resource type="PackedScene" uid="uid://btm36w8k5vo36" path="res://escenas/visuales/visual_base.tscn" id="1_kw64g"]
+[ext_resource type="Texture2D" uid="uid://yx3toxhq3alq" path="res://sprites/builds/buildPuma.png" id="2_1wfe3"]
+
+[node name="VisualPuma" unique_id=110811235 instance=ExtResource("1_kw64g")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=73975405]
+texture = ExtResource("2_1wfe3")

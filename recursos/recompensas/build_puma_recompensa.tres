@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RecompensaBuild" format=3 uid="uid://bgmivekd14dkm"]
+
+[ext_resource type="Resource" uid="uid://c7mm40qj66hmd" path="res://recursos/builds/build_puma.tres" id="1_egauv"]
+[ext_resource type="Script" uid="uid://b0venkd6k1fpo" path="res://recursos/recompensas/recompensa_build.gd" id="1_xv6tm"]
+
+[resource]
+script = ExtResource("1_xv6tm")
+build = ExtResource("1_egauv")
+metadata/_custom_type_script = "uid://b0venkd6k1fpo"

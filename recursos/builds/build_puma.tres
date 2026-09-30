@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildResource" format=3 uid="uid://c7mm40qj66hmd"]
+
+[ext_resource type="Script" uid="uid://dwvegds45klg" path="res://recursos/builds/build_resource.gd" id="1_j6lwb"]
+
+[resource]
+script = ExtResource("1_j6lwb")
+nombre = "Puma"
+dano = 14.0
+velocidad_ataque = 5.2
+defensa = -3.0
+metadata/_custom_type_script = "uid://dwvegds45klg"

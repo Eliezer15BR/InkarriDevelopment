@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuildResource" format=3 uid="uid://chrr0ia4ag3nk"]
+
+[ext_resource type="Script" uid="uid://dwvegds45klg" path="res://recursos/builds/build_resource.gd" id="1_qv56j"]
+
+[resource]
+script = ExtResource("1_qv56j")
+nombre = "Condor"
+vida = 70.0
+velocidad_movimiento = 5.5
+velocidad_ataque = 5.2
+metadata/_custom_type_script = "uid://dwvegds45klg"

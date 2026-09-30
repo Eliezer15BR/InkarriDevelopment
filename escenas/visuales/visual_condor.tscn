@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bkudbgejscrx5"]
+
+[ext_resource type="PackedScene" uid="uid://1iruyra5cpm1" path="res://escenas/visuales/visual_puma.tscn" id="1_ij8s8"]
+[ext_resource type="Texture2D" uid="uid://di2kxphu45qki" path="res://sprites/builds/buildCondor.png" id="2_vjmb7"]
+
+[node name="VisualCondor" unique_id=110811235 instance=ExtResource("1_ij8s8")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=73975405]
+texture = ExtResource("2_vjmb7")
