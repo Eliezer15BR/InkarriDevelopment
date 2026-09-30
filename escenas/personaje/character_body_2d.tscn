@@ -163,6 +163,7 @@ animation = &"go_x"
 frame_progress = 0.7269804
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=596724453]
+offset = Vector2(100, 0)
 limit_left = -550
 limit_top = -325
 limit_right = 550
@@ -172,6 +173,10 @@ limit_smoothed = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=988236367]
 
 [node name="Contador" parent="CanvasLayer" unique_id=219206262 node_paths=PackedStringArray("player") instance=ExtResource("5_5gj2m")]
+offset_left = 1158.0
+offset_top = -1.0
+offset_right = 1158.0
+offset_bottom = -1.0
 player = NodePath("../..")
 
 [node name="EnemyTargetL" type="Marker2D" parent="." unique_id=861870649]

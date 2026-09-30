@@ -37,7 +37,6 @@ func actualizar_estadisticas() -> void:
 		label_build.text = "Build: " + player.build.nombre
 	else:
 		label_build.text = "Build: -"
-
 	label_dano.text = "Daño: " + str(snapped(player.dano, 0.1))
 	label_defensa.text = "Defensa: " + str(snapped(player.defensa, 0.1))
 	label_velocidad.text = (
