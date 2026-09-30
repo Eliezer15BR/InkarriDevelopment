@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://ij718ss2hr4k" path="res://escenas/pedestal/pedestal.tscn" id="7_f8umr"]
 [ext_resource type="Resource" uid="uid://dsieejp7e85kb" path="res://recursos/items/item_omamori.tres" id="7_mnkpq"]
 [ext_resource type="PackedScene" uid="uid://ca3peyq4yum36" path="res://escenas/visuales/omamori.tscn" id="8_ffm13"]
-[ext_resource type="Script" uid="uid://cta7lvx4euw7l" path="res://recursos/recompensas/recompensa_moneda.gd" id="9_kayq2"]
-[ext_resource type="PackedScene" uid="uid://uxxbhntpikxt" path="res://escenas/visuales/moneda_visual.tscn" id="10_k72qw"]
+[ext_resource type="Script" uid="uid://dmf8yqlbees0" path="res://recursos/items/item_valknut.gd" id="9_kayq2"]
+[ext_resource type="PackedScene" uid="uid://bal8x03eo037c" path="res://escenas/visuales/valknut_visual.tscn" id="10_k72qw"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_krxyo"]
 vertices = PackedVector2Array(428.02344, 39, 407.17188, 39, 416.8828, 15.2578125, 352.28906, 204.71094, 350.52344, 254.21094, 334.28125, 247.45313, 336.47656, 195.99219, 109.52344, -3.9765625, 347.9297, -10.8984375, 354.7422, -6.03125, 342.0625, 2.953125, 278.78125, 24.296875, 504, -178.17188, 504, 251, 428.79688, 243.79688, 421.4375, 191.14844, 420.54688, 79.359375, 241.28125, -80.67969, 140, -76.421875, 140, -184.8125, 261.90625, -155.95313, 333.22656, -139.09375, -504, 63.976563, -504.96094, -194.63281, -378.1797, -190, -427.28906, -61.109375, -122.796875, -181.40625, 75.046875, -189.57813, 76.046875, -8.171875, -64.203125, -47, 261.6328, 202.92188, 263.60156, 252.39844, 78.421875, 259.6172, 76.42969, 224.78125, -264.85938, -51.820313, -196.78906, -45.898438, -201.13281, 5.4375, -319.29688, -1.5, -265.97656, -126.609375, -329.21875, -67.921875, -278.03125, -171.13281, -71.640625, 228.21875, -72.63281, 254.95313, -504, 253.03906, -422.65625, 71.85156, -120.1875, -47, -73.75, 77.140625, 348.35156, -42.296875, 338.8828, -83.61719, 396.35156, -31.007813, 418.2422, -6.546875, 302.6797, 109.00781, 321.42188, 68, 340.60938, 68, 408.1797, 102.34375, -294.54688, -190, -368.35156, -73.13281, 236.60156, 54.421875, 306.5625, 30.242188)
@@ -69,9 +69,9 @@ sources/0 = SubResource("TileSetAtlasSource_k1xog")
 sources/1 = SubResource("TileSetAtlasSource_idfhy")
 sources/2 = SubResource("TileSetAtlasSource_fwr1x")
 
-[sub_resource type="Resource" id="Resource_7j1up"]
+[sub_resource type="Resource" id="Resource_u2rpu"]
 script = ExtResource("9_kayq2")
-metadata/_custom_type_script = "uid://cta7lvx4euw7l"
+metadata/_custom_type_script = "uid://dmf8yqlbees0"
 
 [node name="NivelPrueba" type="Node2D" unique_id=761798438]
 script = ExtResource("1_86gqm")
@@ -97,16 +97,15 @@ position = Vector2(213, -98)
 [node name="Recojo" parent="Pedestal" index="2" unique_id=1816766957]
 recompensa = ExtResource("7_mnkpq")
 visual_contenido = ExtResource("8_ffm13")
+grupo_eleccion = "item_room"
 
 [node name="Pedestal2" parent="." unique_id=1013606600 instance=ExtResource("7_f8umr")]
 position = Vector2(-232, -17)
 
-[node name="Pedestal3" parent="." unique_id=1344717188 instance=ExtResource("7_f8umr")]
-position = Vector2(185, 160)
-
-[node name="Recojo" parent="Pedestal3" index="2" unique_id=1816766957]
-recompensa = SubResource("Resource_7j1up")
+[node name="Recojo" parent="Pedestal2" index="2" unique_id=1816766957]
+recompensa = SubResource("Resource_u2rpu")
 visual_contenido = ExtResource("10_k72qw")
+grupo_eleccion = "item_room"
 
 [editable path="Pedestal"]
-[editable path="Pedestal3"]
+[editable path="Pedestal2"]

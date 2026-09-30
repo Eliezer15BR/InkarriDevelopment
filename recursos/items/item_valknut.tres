@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemValknut" format=3 uid="uid://bj3bxtr86s5f2"]
+
+[ext_resource type="Script" uid="uid://dmf8yqlbees0" path="res://recursos/items/item_valknut.gd" id="1_h721i"]
+
+[resource]
+script = ExtResource("1_h721i")
+nombre_item = "Valknut"
+tier = 3
+descripcion = "+3 a tres estadisticas aleatorias y -2 a otra"
+metadata/_custom_type_script = "uid://dmf8yqlbees0"

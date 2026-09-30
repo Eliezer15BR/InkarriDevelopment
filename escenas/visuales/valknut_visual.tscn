@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bal8x03eo037c"]
+
+[ext_resource type="Texture2D" uid="uid://o5dmpak6a1id" path="res://sprites/objects/valknut1.png" id="1_7qjev"]
+
+[sub_resource type="Animation" id="Animation_u2rpu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_k8rhq"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333333, 0.16666667, 0.56666666, 0.76666665, 0.96666664),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 5), Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lnown"]
+_data = {
+&"RESET": SubResource("Animation_u2rpu"),
+&"default": SubResource("Animation_k8rhq")
+}
+
+[node name="ValknutVisual" type="Node2D" unique_id=355355174]
+position = Vector2(0, 10)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1075935055]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7qjev")
+offset = Vector2(0, -50)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=49179959]
+libraries/ = SubResource("AnimationLibrary_lnown")
+autoplay = &"default"
