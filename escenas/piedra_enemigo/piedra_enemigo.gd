@@ -6,6 +6,7 @@ var dano: float=0.0
 var impacto: bool =false
 var animacion_explosion:StringName=&"explotar"
 func _ready() -> void:
+	add_to_group("proyectiles")
 	body_entered.connect(_on_body_entered)
 func lanzar(new_dir: Vector2,nuevo_dano:float,
 animacion_vuelo=&"default",n_animacion_explosion=&"explotar") -> void:

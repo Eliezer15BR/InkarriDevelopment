@@ -2,11 +2,8 @@ extends Node2D
 
 @export var room_container: Node2D
 @export var player: CharacterBody2D
-
-# Salas fijas
 @export var start_room: PackedScene
 @export var boss_room: PackedScene
-
 @export var combat_room: PackedScene
 @export var skeleton_room: PackedScene
 @export var plant_room: PackedScene
@@ -18,6 +15,8 @@ var _numero_sala: int = 1
 
 func _ready() -> void:
 	randomize()
+	if not player.murio.is_connected(_on_player_murio):
+		player.murio.connect(_on_player_murio)
 	cargar_sala(start_room)
 
 
@@ -25,6 +24,7 @@ func cargar_sala(escena: PackedScene) -> void:
 	if escena == null:
 		push_error("Se intentó cargar una sala vacía.")
 		return
+	limpiar_proyectiles()
 	if _nodo_nivel != null: _nodo_nivel.queue_free()
 	_nodo_nivel = escena.instantiate()
 	room_container.add_child(_nodo_nivel)
@@ -61,3 +61,19 @@ func elegir_combate_aleatorio() -> PackedScene:
 func _on_portal_inicio(_nivel: int) -> void:
 	_numero_sala = 2
 	cargar_sala(elegir_sala_aleatoria())
+
+func _on_player_murio() -> void: iniciar_run()
+
+func limpiar_proyectiles() -> void:
+	for proyectil in get_tree().get_nodes_in_group("proyectiles"):
+		if is_instance_valid(proyectil): proyectil.queue_free()
+
+func iniciar_run() -> void:
+	_numero_sala = 1
+	player.monedas = 0
+	player.monedas_sign.emit(player.monedas)
+	player.objeto_interactuable = null
+	player.invulnerable = false
+	player.cooldown_disparo = 0.0
+	player.aplicar_build(player.build)
+	cargar_sala(start_room)

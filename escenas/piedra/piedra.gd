@@ -5,6 +5,7 @@ var direccion = Vector2(0,0)
 var dano: float=0.0
 var impacto: bool =false
 func _ready() -> void:
+	add_to_group("proyectiles")
 	body_entered.connect(_on_body_entered)
 func lanzar(new_dir: Vector2,nuevo_dano:float) -> void:
 	dano=nuevo_dano
