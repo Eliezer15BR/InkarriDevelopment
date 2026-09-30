@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cnmk3h2mbjgpm" path="res://escenas/rooms/esqueleto_room/esqueleto_room.tscn" id="4_qbdva"]
 [ext_resource type="PackedScene" uid="uid://wjrb10117lre" path="res://escenas/rooms/planta_room/planta_room.tscn" id="5_xkjmt"]
 [ext_resource type="PackedScene" uid="uid://1exoguo67jx3" path="res://escenas/rooms/item_room/item_room.tscn" id="8_0riwj"]
+[ext_resource type="PackedScene" uid="uid://bdi54wo31vj15" path="res://escenas/datos_enemigo/datos_enemigos.tscn" id="9_0riwj"]
 
-[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player")]
+[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos")]
 script = ExtResource("1_wxkds")
 room_container = NodePath("RoomContainer")
 player = NodePath("CharacterBody2D")
@@ -19,7 +20,10 @@ combat_room = ExtResource("3_ra52p")
 skeleton_room = ExtResource("4_qbdva")
 plant_room = ExtResource("5_xkjmt")
 item_room = ExtResource("8_0riwj")
+hud_enemigos = NodePath("DatosEnemigos")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=80319903]
 
 [node name="CharacterBody2D" parent="." unique_id=2098188972 instance=ExtResource("4_j40sd")]
+
+[node name="DatosEnemigos" parent="." unique_id=1349921800 instance=ExtResource("9_0riwj")]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bdi54wo31vj15"]
+
+[ext_resource type="Script" uid="uid://cbd3vr6g75anb" path="res://escenas/datos_enemigo/datos_enemigos.gd" id="1_nkhmk"]
+
+[node name="DatosEnemigos" type="Control" unique_id=1349921800 node_paths=PackedStringArray("barras")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 575.0
+offset_right = 615.0
+offset_bottom = 40.0
+script = ExtResource("1_nkhmk")
+barras = NodePath("Barras")
+
+[node name="Barras" type="VBoxContainer" parent="." unique_id=1984812102]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
