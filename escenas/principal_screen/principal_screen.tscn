@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dsrn825bdbyd6" path="res://principal_screen.gd" id="1_wxkds"]
 [ext_resource type="PackedScene" uid="uid://cqxrpdj2iyxo6" path="res://escenas/rooms/start_room/start_room.tscn" id="2_ccs1q"]
-[ext_resource type="PackedScene" uid="uid://d3pdixv1w5ejl" path="res://escenas/rooms/nivel_prueba/nivel_prueba.tscn" id="2_xkjmt"]
 [ext_resource type="PackedScene" uid="uid://cr6yrx2fc76wk" path="res://escenas/rooms/combat_room/combat_room.tscn" id="3_ra52p"]
 [ext_resource type="PackedScene" uid="uid://dwdq2lq8pwwsc" path="res://escenas/rooms/nivel_boss/nivel_boss.tscn" id="4_i0n2k"]
 [ext_resource type="PackedScene" uid="uid://cdqrtbeshquoq" path="res://escenas/personaje/character_body_2d.tscn" id="4_j40sd"]
 [ext_resource type="PackedScene" uid="uid://cnmk3h2mbjgpm" path="res://escenas/rooms/esqueleto_room/esqueleto_room.tscn" id="4_qbdva"]
 [ext_resource type="PackedScene" uid="uid://wjrb10117lre" path="res://escenas/rooms/planta_room/planta_room.tscn" id="5_xkjmt"]
+[ext_resource type="PackedScene" uid="uid://1exoguo67jx3" path="res://escenas/rooms/item_room/item_room.tscn" id="8_0riwj"]
 
 [node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player")]
 script = ExtResource("1_wxkds")
-niveles = Array[PackedScene]([ExtResource("2_ccs1q"), ExtResource("2_xkjmt"), ExtResource("3_ra52p"), ExtResource("4_qbdva"), ExtResource("3_ra52p"), ExtResource("5_xkjmt"), ExtResource("4_i0n2k")])
+niveles = Array[PackedScene]([ExtResource("2_ccs1q"), ExtResource("8_0riwj"), ExtResource("3_ra52p"), ExtResource("4_qbdva"), ExtResource("3_ra52p"), ExtResource("5_xkjmt"), ExtResource("4_i0n2k")])
 room_container = NodePath("RoomContainer")
 player = NodePath("CharacterBody2D")
 

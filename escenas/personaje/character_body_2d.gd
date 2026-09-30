@@ -88,6 +88,7 @@ func aplicar_build(nueva_build: BuildResource)->void:
 	if nueva_build==null:
 		push_error("El Player no tiene build")
 		return
+	build=nueva_build
 	vida_maxima=nueva_build.vida
 	vida_actual=vida_maxima
 	dano=nueva_build.dano
