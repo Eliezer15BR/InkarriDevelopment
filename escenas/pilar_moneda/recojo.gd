@@ -3,7 +3,7 @@ extends Area2D
 @export var recompensa: RecompensaResource
 @export var visual_contenido: PackedScene
 @export var grupo_eleccion:String =""
-
+signal recompensa_elegida
 var consumido: bool = false
 var visual_instanciado: Node2D = null
 
@@ -31,12 +31,12 @@ func interactuar(player: CharacterBody2D) -> void:
 	consumido = true
 	player.quitar_interactuable(self)
 	recompensa.aplicar(player)
+	recompensa_elegida.emit()
 	if grupo_eleccion!="":
 		var pedestales:=get_tree().get_nodes_in_group(grupo_eleccion)
 		for pedestal in pedestales:
 			if is_instance_valid(pedestal): pedestal.desactivar_pedestal()
 	else: desactivar_pedestal()
-	queue_free()
 
 func desactivar_pedestal() -> void:
 	consumido=true
