@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccs1r6epo07nu" path="res://escenas/datos_jugador/datos_jugador.gd" id="1_4vt3b"]
 [ext_resource type="Texture2D" uid="uid://d4h58sjew5tb6" path="res://moneda.png" id="1_hfk8o"]
+[ext_resource type="Theme" uid="uid://c8ufndp1ljc63" path="res://temas/letra.tres" id="3_hodnw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vt3b"]
 bg_color = Color(0.59607846, 0.7921569, 0.5372549, 0.6313726)
@@ -14,39 +15,42 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0.91164225, 0.92320293, 1)
 
-[node name="DatosJugador" type="Control" unique_id=219206262 node_paths=PackedStringArray("label_monedas", "barra_vida", "label_vida")]
+[node name="DatosJugador" type="Control" unique_id=219206262 node_paths=PackedStringArray("label_monedas", "barra_vida", "label_build", "label_dano", "label_defensa", "label_velocidad", "label_ataque", "label_fortuna")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1150.0
+offset_top = 8.0
+offset_right = 1150.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4vt3b")
 label_monedas = NodePath("LabMonedas")
 barra_vida = NodePath("BarraVida")
-label_vida = NodePath("LabelVida")
+label_build = NodePath("LabelBuild")
+label_dano = NodePath("LaberDano")
+label_defensa = NodePath("LabelDefensa")
+label_velocidad = NodePath("LabelMovimiento")
+label_ataque = NodePath("LabelAtaque")
+label_fortuna = NodePath("LaberFortuna")
 
 [node name="LabMonedas" type="Label" parent="." unique_id=886687422]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 11.0
-offset_right = 95.0
-offset_bottom = 34.0
+offset_left = 36.0
+offset_top = 9.0
+offset_right = 76.0
+offset_bottom = 32.0
+theme = ExtResource("3_hodnw")
 text = " x 0"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1559199137]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 500.0
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.07, 0.07)
 texture = ExtResource("1_hfk8o")
-
-[node name="LabelVida" type="Label" parent="." unique_id=688045816]
-layout_mode = 0
-offset_left = 191.0
-offset_top = 4.0
-offset_right = 231.0
-offset_bottom = 27.0
 
 [node name="BarraVida" type="ProgressBar" parent="." unique_id=1566564910]
 layout_mode = 0
@@ -54,5 +58,60 @@ offset_left = 92.0
 offset_top = 1.0
 offset_right = 183.0
 offset_bottom = 32.0
+theme = ExtResource("3_hodnw")
 theme_override_styles/background = SubResource("StyleBoxFlat_4vt3b")
 theme_override_styles/fill = SubResource("StyleBoxFlat_x403f")
+
+[node name="LabelBuild" type="Label" parent="." unique_id=636145325]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 54.0
+offset_right = 83.0
+offset_bottom = 77.0
+theme = ExtResource("3_hodnw")
+text = "Build: Base"
+
+[node name="LaberDano" type="Label" parent="." unique_id=700982592]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 76.0
+offset_right = 83.0
+offset_bottom = 99.0
+theme = ExtResource("3_hodnw")
+text = "Daño: 10"
+
+[node name="LabelDefensa" type="Label" parent="." unique_id=495505326]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 99.0
+offset_right = 89.0
+offset_bottom = 122.0
+theme = ExtResource("3_hodnw")
+text = "Defensa: 5"
+
+[node name="LabelAtaque" type="Label" parent="." unique_id=1335965884]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 146.0
+offset_right = 83.0
+offset_bottom = 169.0
+theme = ExtResource("3_hodnw")
+text = "Ataque: 4	"
+
+[node name="LaberFortuna" type="Label" parent="." unique_id=342950457]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 172.0
+offset_right = 83.0
+offset_bottom = 195.0
+theme = ExtResource("3_hodnw")
+text = "Fortuna: 5"
+
+[node name="LabelMovimiento" type="Label" parent="." unique_id=1628824247]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 122.0
+offset_right = 106.0
+offset_bottom = 145.0
+theme = ExtResource("3_hodnw")
+text = "Movimiento: 4"
