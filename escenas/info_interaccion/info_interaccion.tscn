@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bon5tt7um8bgs"]
 
 [ext_resource type="Script" uid="uid://rmfmhkffl6p1" path="res://escenas/info_interaccion/info_interaccion.gd" id="1_s45ht"]
+[ext_resource type="Theme" uid="uid://c8ufndp1ljc63" path="res://temas/letra.tres" id="2_y7kf7"]
 
 [node name="InfoInteraccion" type="PanelContainer" unique_id=465567941 node_paths=PackedStringArray("label_nombre", "label_tipo", "label_descripcion")]
 script = ExtResource("1_s45ht")
@@ -10,9 +11,11 @@ label_descripcion = NodePath("VBoxContainer/LabelDescripcion")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=497796466]
 layout_mode = 2
+theme = ExtResource("2_y7kf7")
 
 [node name="LabelNombre" type="Label" parent="VBoxContainer" unique_id=489943242]
 layout_mode = 2
+text = "Noc w"
 
 [node name="LabelTipo" type="Label" parent="VBoxContainer" unique_id=1088808618]
 layout_mode = 2
