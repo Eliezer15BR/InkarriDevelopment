@@ -3,8 +3,8 @@ class_name  EnemyBase
 signal vida_cambiada(vida_actual:float, vida_maxima:float)
 signal murio(enemigo: EnemyBase)
 @export var estadisticas: EnemyStatsResource
-@export var murio_sound: AudioStreamPlayer2D
 const SPAWN_FX=preload("res://escenas/spawn_fx/spawn_fx.tscn")
+const DEATH_SOUND: AudioStream=preload("res://musica/death.mp3")
 const PIXELS_PER_MOVEMENT: float=25.0
 var vida_maxima:float
 var vida_actual:float
@@ -39,7 +39,12 @@ func recibir_dano(cantidad:float):
 	if vida_actual<=0: morir()
 
 func morir():
-	murio_sound.play()
+	var sonido := AudioStreamPlayer2D.new()
+	sonido.stream = DEATH_SOUND
+	sonido.global_position = global_position
+	get_tree().current_scene.add_child(sonido)
+	sonido.finished.connect(sonido.queue_free)
+	sonido.play()
 	murio.emit(self)
 	queue_free()
 
