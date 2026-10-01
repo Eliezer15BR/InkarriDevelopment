@@ -51,6 +51,7 @@ func _on_musica_terminada():
 	else: siguiente_cancion()
 
 func reproducir_musica_boss():
+	_modo_boss=true
 	musica.stop()
 	musica.stream=musica_boss
 	musica.play()
@@ -58,6 +59,7 @@ func reproducir_musica_boss():
 func _on_reiniciar_partida():
 	get_tree().paused=false
 	pantalla_fin_juego.visible=false
+	iniciar_playlist()
 	iniciar_run()
 
 func cargar_sala(escena: PackedScene) -> void:
@@ -117,6 +119,7 @@ func limpiar_proyectiles() -> void:
 
 func iniciar_run() -> void:
 	_numero_sala = 1
+	_modo_boss=false
 	player.monedas = 0
 	player.monedas_sign.emit(player.monedas)
 	player.objeto_interactuable = null
