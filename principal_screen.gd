@@ -21,7 +21,7 @@ func _ready() -> void:
 	if not player.murio.is_connected(_on_player_murio):
 		player.murio.connect(_on_player_murio)
 	pantalla_fin_juego.visible=false
-	if pantalla_fin_juego.has_signal("reinicar_partida"):
+	if pantalla_fin_juego.has_signal("reiniciar_partida"):
 		pantalla_fin_juego.reiniciar_partida.connect(_on_reiniciar_partida)
 	cargar_sala(start_room)
 
