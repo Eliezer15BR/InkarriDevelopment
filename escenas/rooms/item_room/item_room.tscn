@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ij718ss2hr4k" path="res://escenas/pedestal/pedestal.tscn" id="6_f7wqd"]
 [ext_resource type="Resource" uid="uid://dsieejp7e85kb" path="res://recursos/items/item_omamori.tres" id="7_pby0a"]
 [ext_resource type="PackedScene" uid="uid://ca3peyq4yum36" path="res://escenas/visuales/omamori.tscn" id="8_1aptc"]
-[ext_resource type="Script" uid="uid://dmf8yqlbees0" path="res://recursos/items/item_valknut.gd" id="9_mf7fi"]
+[ext_resource type="Resource" uid="uid://bj3bxtr86s5f2" path="res://recursos/items/item_valknut.tres" id="10_7knn8"]
 [ext_resource type="PackedScene" uid="uid://bal8x03eo037c" path="res://escenas/visuales/valknut_visual.tscn" id="10_ppswv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c001x"]
@@ -65,10 +65,6 @@ sources/0 = SubResource("TileSetAtlasSource_c001x")
 sources/1 = SubResource("TileSetAtlasSource_mguag")
 sources/2 = SubResource("TileSetAtlasSource_1rvmu")
 
-[sub_resource type="Resource" id="Resource_yy6fl"]
-script = ExtResource("9_mf7fi")
-metadata/_custom_type_script = "uid://dmf8yqlbees0"
-
 [node name="ItemRoom" unique_id=568286233 instance=ExtResource("1_j8fgl")]
 script = ExtResource("2_e51fh")
 
@@ -108,7 +104,7 @@ grupo_eleccion = "item_room"
 position = Vector2(-232, -17)
 
 [node name="Recojo" parent="Pedestal2" index="2" unique_id=1816766957]
-recompensa = SubResource("Resource_yy6fl")
+recompensa = ExtResource("10_7knn8")
 visual_contenido = ExtResource("10_ppswv")
 grupo_eleccion = "item_room"
 

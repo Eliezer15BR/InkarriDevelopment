@@ -6,6 +6,7 @@
 script = ExtResource("1_3p8lg")
 nombre_item = "Omamori"
 tier = 3
+descripcion = "Aumenta la Defensa y otorga +5 de Fortuna."
 multiplicador_defensa = 1.5
 fortuna_extra = 5.0
 metadata/_custom_type_script = "uid://br23voxlmryhu"

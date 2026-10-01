@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://drurfimllajhn"]
+
+[ext_resource type="Texture2D" uid="uid://bt0046ev03gwg" path="res://sprites/screens/Menu.jpg" id="1_50iro"]
+[ext_resource type="Script" uid="uid://jv0u2s1k3ftr" path="res://escenas/screens/menu.gd" id="1_vf5c6"]
+
+[node name="Menu" type="Control" unique_id=2039530760 node_paths=PackedStringArray("boton_jugar", "boton_salir")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vf5c6")
+boton_jugar = NodePath("ButtonJugar")
+boton_salir = NodePath("ButtonSalir")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1121011174]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_50iro")
+
+[node name="ButtonJugar" type="Button" parent="." unique_id=1084880518]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 479.0
+offset_right = 413.0
+offset_bottom = 558.0
+flat = true
+
+[node name="ButtonSalir" type="Button" parent="." unique_id=1381554751]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 475.0
+offset_right = 781.0
+offset_bottom = 556.0
+flat = true

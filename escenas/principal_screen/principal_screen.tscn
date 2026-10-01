@@ -30,9 +30,9 @@ hud_info_interaccion = NodePath("InfoInteraccion")
 position = Vector2(-17, -9)
 
 [node name="InfoInteraccion" parent="." unique_id=465567941 instance=ExtResource("9_216it")]
-offset_left = 1159.0
-offset_top = 236.0
-offset_right = 1206.0
-offset_bottom = 313.0
+offset_left = 581.0
+offset_top = 155.0
+offset_right = 628.0
+offset_bottom = 232.0
 
 [node name="DatosEnemigos" parent="." unique_id=1349921800 instance=ExtResource("9_0riwj")]

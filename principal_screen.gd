@@ -91,6 +91,7 @@ func conectar_interactuables_info(nodo: Node) -> void:
 func _on_mostrar_info(recompensa: RecompensaResource) -> void:
 	if hud_info_interaccion != null:
 		hud_info_interaccion.mostrar_recompensa(recompensa)
+		print("hola bro")
 
 
 func _on_ocultar_info() -> void:

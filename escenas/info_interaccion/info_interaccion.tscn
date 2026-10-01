@@ -21,4 +21,6 @@ text = "Noc w"
 layout_mode = 2
 
 [node name="LabelDescripcion" type="Label" parent="VBoxContainer" unique_id=1058769415]
+custom_maximum_size = Vector2(150, -1)
 layout_mode = 2
+autowrap_mode = 2
