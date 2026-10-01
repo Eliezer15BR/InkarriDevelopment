@@ -2,8 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://bkvwwmiuhqwvw" path="res://sprites/screens/fin.png" id="1_6skjj"]
 [ext_resource type="Script" uid="uid://cqv7apxtna40r" path="res://escenas/screens/fin_de_juego.gd" id="1_tc65b"]
+[ext_resource type="AudioStream" uid="uid://b60pprx5c8qvd" path="res://musica/game_over.mp3" id="3_efksw"]
 
-[node name="FinDeJuego" type="Control" unique_id=1863778300 node_paths=PackedStringArray("boton_menu", "boton_reiniciar")]
+[node name="FinDeJuego" type="Control" unique_id=1863778300 node_paths=PackedStringArray("boton_menu", "boton_reiniciar", "sound")]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -12,6 +13,7 @@ offset_bottom = 40.0
 script = ExtResource("1_tc65b")
 boton_menu = NodePath("ButtonMenu")
 boton_reiniciar = NodePath("ButtonReiniciar")
+sound = NodePath("AudioStreamPlayer2D")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=492326646]
 layout_mode = 0
@@ -35,3 +37,9 @@ offset_top = 399.0
 offset_right = 971.0
 offset_bottom = 506.0
 flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=507632303]
+stream = ExtResource("3_efksw")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

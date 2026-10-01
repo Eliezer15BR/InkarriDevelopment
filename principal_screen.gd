@@ -105,8 +105,10 @@ func _on_portal_inicio(_nivel: int) -> void:
 	_numero_sala = 2
 	cargar_sala(elegir_sala_aleatoria())
 
-func _on_player_murio() -> void: 
+func _on_player_murio() -> void:
+	musica.stop()
 	pantalla_fin_juego.visible=true
+	pantalla_fin_juego.reproducir_audio()
 	get_tree().paused=true
 
 func limpiar_proyectiles() -> void:
