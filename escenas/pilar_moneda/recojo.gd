@@ -4,6 +4,7 @@ extends Area2D
 @export var visual_contenido: PackedScene
 @export var grupo_eleccion:String =""
 @export var indicador:Label
+@export var sound: AudioStreamPlayer2D
 signal recompensa_elegida
 signal mostrar_info(recompensa: RecompensaResource)
 signal ocultar_info
@@ -37,8 +38,10 @@ func interactuar(player: CharacterBody2D) -> void:
 		push_error("El pedestal no tiene una recompensa asignada.")
 		return
 	consumido = true
+	print("obvio bro")
 	player.quitar_interactuable(self)
 	recompensa.aplicar(player)
+	sound.play()
 	recompensa_elegida.emit()
 	if grupo_eleccion!="":
 		var pedestales:=get_tree().get_nodes_in_group(grupo_eleccion)

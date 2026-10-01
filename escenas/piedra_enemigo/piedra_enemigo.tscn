@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://f153tgj67awp" path="res://escenas/piedra_enemigo/piedra_enemigo.gd" id="1_7xdbv"]
 [ext_resource type="Texture2D" uid="uid://c715whflpq5rd" path="res://sprites/misiles/Misil2.png" id="1_psege"]
 [ext_resource type="Texture2D" uid="uid://cl4g63nma6a5p" path="res://sprites/misiles/Misil5.png" id="3_f3nm0"]
+[ext_resource type="AudioStream" uid="uid://bpt5pmeq4po6u" path="res://musica/choque.mp3" id="4_8euoc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psege"]
 radius = 6.0
@@ -142,11 +143,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="PiedraEnemigo" type="Area2D" unique_id=1086124627 node_paths=PackedStringArray("sprite")]
+[node name="PiedraEnemigo" type="Area2D" unique_id=1086124627 node_paths=PackedStringArray("sprite", "sound")]
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_7xdbv")
 sprite = NodePath("AnimatedSprite2D")
+sound = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1253271727]
 shape = SubResource("CircleShape2D_psege")
@@ -155,3 +157,7 @@ shape = SubResource("CircleShape2D_psege")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_euaep")
 animation = &"explotar2"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1616783824]
+stream = ExtResource("4_8euoc")
+volume_db = -5.0

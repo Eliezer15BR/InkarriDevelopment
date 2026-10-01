@@ -2,11 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://btr8jrpr7nlen" path="res://escenas/pilar_moneda/pilar_moneda.tscn" id="1_6bjin"]
 [ext_resource type="Theme" uid="uid://c8ufndp1ljc63" path="res://temas/letra.tres" id="2_fwkpd"]
+[ext_resource type="AudioStream" uid="uid://iun5dbwh030d" path="res://musica/collect.mp3" id="3_dyagc"]
 
 [node name="Pedestal" unique_id=108227599 instance=ExtResource("1_6bjin")]
 
-[node name="Recojo" parent="." index="2" unique_id=1816766957 node_paths=PackedStringArray("indicador")]
+[node name="Recojo" parent="." index="2" unique_id=1816766957 node_paths=PackedStringArray("indicador", "sound")]
 indicador = NodePath("Label")
+sound = NodePath("AudioStreamPlayer2D")
 
 [node name="Label" type="Label" parent="Recojo" index="1" unique_id=1135241568]
 visible = false
@@ -17,3 +19,6 @@ offset_bottom = -15.999998
 scale = Vector2(0.7, 0.7)
 theme = ExtResource("2_fwkpd")
 text = "E"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Recojo" index="2" unique_id=310316625]
+stream = ExtResource("3_dyagc")

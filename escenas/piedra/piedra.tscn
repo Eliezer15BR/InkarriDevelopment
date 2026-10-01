@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8y0e03iyvsit" path="res://escenas/piedra/piedra.gd" id="1_xasnl"]
 [ext_resource type="Texture2D" uid="uid://ftk5despmdts" path="res://sprites/misiles/Misil1.png" id="3_26xr1"]
+[ext_resource type="AudioStream" uid="uid://bpt5pmeq4po6u" path="res://musica/choque.mp3" id="3_i5xr2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_krxyo"]
 radius = 4.0
@@ -75,12 +76,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Piedra" type="Area2D" unique_id=1537495979 node_paths=PackedStringArray("sprite")]
+[node name="Piedra" type="Area2D" unique_id=1537495979 node_paths=PackedStringArray("sprite", "sound")]
 z_index = 1
 collision_layer = 4
 collision_mask = 9
 script = ExtResource("1_xasnl")
 sprite = NodePath("AnimatedSprite2D")
+sound = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951933012]
 shape = SubResource("CircleShape2D_krxyo")
@@ -90,3 +92,7 @@ scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_krxyo")
 animation = &"explotar"
 frame_progress = 0.32945368
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1223753480]
+stream = ExtResource("3_i5xr2")
+volume_db = -4.889

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c52c8sswqt2ji" path="res://sprites/screens/menu.png" id="2_vf5c6"]
 [ext_resource type="Theme" uid="uid://c8ufndp1ljc63" path="res://temas/letra.tres" id="3_vajnu"]
 [ext_resource type="Script" uid="uid://c4l11ed0ti8v6" path="res://escenas/screens/label_2.gd" id="4_xtl0m"]
+[ext_resource type="AudioStream" uid="uid://d4mw10dqcg2ey" path="res://musica/intro.mp3" id="5_cqpnh"]
 
 [node name="Menu" type="Control" unique_id=2039530760 node_paths=PackedStringArray("boton_jugar", "boton_salir")]
 layout_mode = 3
@@ -58,3 +59,8 @@ offset_right = 360.0
 offset_bottom = 657.0
 theme = ExtResource("3_vajnu")
 text = "Hecho por Marco Cabrera y Eliseo Condori"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2095085469]
+stream = ExtResource("5_cqpnh")
+autoplay = true
+parameters/looping = true

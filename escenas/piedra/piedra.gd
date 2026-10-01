@@ -1,6 +1,7 @@
 extends Area2D
 @export var velocidad: float = 400.0
 @export var sprite: AnimatedSprite2D
+@export var sound: AudioStreamPlayer2D
 var direccion = Vector2(0,0)
 var dano: float=0.0
 var impacto: bool =false
@@ -16,7 +17,9 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if impacto: return
 	impacto=true
-	if body.has_method("recibir_dano"): body.recibir_dano(dano)
+	if body.has_method("recibir_dano"): 
+		sound.play()
+		body.recibir_dano(dano)
 	animar("explotar")
 	velocidad=0
 	await get_tree().create_timer(0.2).timeout
