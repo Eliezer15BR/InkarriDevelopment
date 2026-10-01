@@ -16,5 +16,5 @@ func _on_reiniciar_pressed() -> void:
 func _on_menu_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file(
-		"res://TU_RUTA_DEL_MENU/menu.tscn"
+		"res://escenas/screens/menu.tscn"
 	)

@@ -26,7 +26,6 @@ offset_left = 399.0
 offset_top = 415.0
 offset_right = 656.0
 offset_bottom = 501.0
-mouse_filter = 2
 flat = true
 
 [node name="ButtonReiniciar" type="Button" parent="." unique_id=661819116]
@@ -35,5 +34,4 @@ offset_left = 693.0
 offset_top = 399.0
 offset_right = 971.0
 offset_bottom = 506.0
-mouse_filter = 2
 flat = true
