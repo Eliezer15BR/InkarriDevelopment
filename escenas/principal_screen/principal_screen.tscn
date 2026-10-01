@@ -8,11 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://cnmk3h2mbjgpm" path="res://escenas/rooms/esqueleto_room/esqueleto_room.tscn" id="4_qbdva"]
 [ext_resource type="PackedScene" uid="uid://wjrb10117lre" path="res://escenas/rooms/planta_room/planta_room.tscn" id="5_xkjmt"]
 [ext_resource type="PackedScene" uid="uid://1exoguo67jx3" path="res://escenas/rooms/item_room/item_room.tscn" id="8_0riwj"]
+[ext_resource type="AudioStream" uid="uid://by6qo3d8qkqw4" path="res://musica/cueva1.mp3" id="8_7tjf7"]
+[ext_resource type="AudioStream" uid="uid://y63xcg258anq" path="res://musica/cuevaBoss.mp3" id="8_47qa8"]
 [ext_resource type="PackedScene" uid="uid://bdi54wo31vj15" path="res://escenas/datos_enemigo/datos_enemigos.tscn" id="9_0riwj"]
 [ext_resource type="PackedScene" uid="uid://bon5tt7um8bgs" path="res://escenas/info_interaccion/info_interaccion.tscn" id="9_216it"]
+[ext_resource type="AudioStream" uid="uid://cusk7kihpg86q" path="res://musica/cueva2.mp3" id="9_laeo5"]
 [ext_resource type="PackedScene" uid="uid://cdp5rpakppfel" path="res://escenas/screens/fin_de_juego.tscn" id="10_kgilr"]
+[ext_resource type="AudioStream" uid="uid://dgygk1rff5swc" path="res://musica/cueva3.mp3" id="10_usl86"]
 
-[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos", "hud_info_interaccion", "pantalla_fin_juego")]
+[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos", "hud_info_interaccion", "pantalla_fin_juego", "musica")]
 script = ExtResource("1_wxkds")
 room_container = NodePath("RoomContainer")
 player = NodePath("CharacterBody2D")
@@ -25,6 +29,9 @@ item_room = ExtResource("8_0riwj")
 hud_enemigos = NodePath("DatosEnemigos")
 hud_info_interaccion = NodePath("InfoInteraccion")
 pantalla_fin_juego = NodePath("FinDeJuego")
+musica = NodePath("Musica")
+playlist = Array[AudioStream]([ExtResource("8_7tjf7"), ExtResource("9_laeo5"), ExtResource("10_usl86")])
+musica_boss = ExtResource("8_47qa8")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=80319903]
 
@@ -45,3 +52,5 @@ offset_left = -574.0
 offset_top = -326.0
 offset_right = -490.0
 offset_bottom = -286.0
+
+[node name="Musica" type="AudioStreamPlayer2D" parent="." unique_id=258321168]

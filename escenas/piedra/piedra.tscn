@@ -95,4 +95,4 @@ frame_progress = 0.32945368
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1223753480]
 stream = ExtResource("3_i5xr2")
-volume_db = -4.889
+volume_db = -10.0

@@ -38,9 +38,10 @@ func interactuar(player: CharacterBody2D) -> void:
 		push_error("El pedestal no tiene una recompensa asignada.")
 		return
 	consumido = true
-	print("obvio bro")
 	player.quitar_interactuable(self)
 	recompensa.aplicar(player)
+	sound.reparent(get_tree().current_scene)
+	sound.finished.connect(sound.queue_free)
 	sound.play()
 	recompensa_elegida.emit()
 	if grupo_eleccion!="":

@@ -11,7 +11,12 @@ extends Node2D
 @export var hud_enemigos: Control
 @export var hud_info_interaccion: Control
 @export var pantalla_fin_juego: Control
+@export var musica: AudioStreamPlayer2D
+@export var playlist: Array[AudioStream]=[]
+@export var musica_boss: AudioStream
 
+var _indice_cancion: int=0
+var _modo_boss:bool=false
 var _nodo_nivel: Node = null
 var _numero_sala: int = 1
 
@@ -23,7 +28,32 @@ func _ready() -> void:
 	pantalla_fin_juego.visible=false
 	if pantalla_fin_juego.has_signal("reiniciar_partida"):
 		pantalla_fin_juego.reiniciar_partida.connect(_on_reiniciar_partida)
+	musica.finished.connect(_on_musica_terminada)
+	iniciar_playlist()
 	cargar_sala(start_room)
+	
+
+func iniciar_playlist():
+	_modo_boss=false
+	_indice_cancion=randi_range(0,playlist.size()-1)
+	musica.stream=playlist[_indice_cancion]
+	musica.play()
+
+func siguiente_cancion():
+	var nuevo_indice := _indice_cancion
+	while nuevo_indice == _indice_cancion: nuevo_indice = randi_range(0,playlist.size()-1)
+	_indice_cancion = nuevo_indice
+	musica.stream=playlist[_indice_cancion]
+	musica.play()
+
+func _on_musica_terminada():
+	if _modo_boss: musica.play()
+	else: siguiente_cancion()
+
+func reproducir_musica_boss():
+	musica.stop()
+	musica.stream=musica_boss
+	musica.play()
 
 func _on_reiniciar_partida():
 	get_tree().paused=false
@@ -52,6 +82,7 @@ func cargar_sala(escena: PackedScene) -> void:
 func _avanzar_sala() -> void:
 	_numero_sala += 1
 	if _numero_sala >= 7:
+		reproducir_musica_boss()
 		cargar_sala(boss_room)
 		return
 	cargar_sala(elegir_sala_aleatoria())
