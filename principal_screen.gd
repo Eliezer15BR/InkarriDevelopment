@@ -21,7 +21,7 @@ func _ready() -> void:
 	if not player.murio.is_connected(_on_player_murio):
 		player.murio.connect(_on_player_murio)
 	pantalla_fin_juego.visible=false
-	if pantalla_fin_juego.has_signal("reinicar partida"):
+	if pantalla_fin_juego.has_signal("reinicar_partida"):
 		pantalla_fin_juego.reiniciar_partida.connect(_on_reiniciar_partida)
 	cargar_sala(start_room)
 
@@ -76,7 +76,7 @@ func _on_portal_inicio(_nivel: int) -> void:
 
 func _on_player_murio() -> void: 
 	pantalla_fin_juego.visible=true
-	iniciar_run()
+	get_tree().paused=true
 
 func limpiar_proyectiles() -> void:
 	for proyectil in get_tree().get_nodes_in_group("proyectiles"):
