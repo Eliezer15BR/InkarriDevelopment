@@ -1,5 +1,19 @@
 [gd_scene format=3 uid="uid://ij718ss2hr4k"]
 
 [ext_resource type="PackedScene" uid="uid://btr8jrpr7nlen" path="res://escenas/pilar_moneda/pilar_moneda.tscn" id="1_6bjin"]
+[ext_resource type="Theme" uid="uid://c8ufndp1ljc63" path="res://temas/letra.tres" id="2_fwkpd"]
 
 [node name="Pedestal" unique_id=108227599 instance=ExtResource("1_6bjin")]
+
+[node name="Recojo" parent="." index="2" unique_id=1816766957 node_paths=PackedStringArray("indicador")]
+indicador = NodePath("Label")
+
+[node name="Label" type="Label" parent="Recojo" index="1" unique_id=1135241568]
+visible = false
+offset_left = 13.0
+offset_top = -31.999998
+offset_right = 24.0
+offset_bottom = -15.999998
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("2_fwkpd")
+text = "E"

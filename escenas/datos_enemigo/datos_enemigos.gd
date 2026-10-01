@@ -24,23 +24,86 @@ func _buscar_enemigos(nodo: Node) -> void:
 
 		_buscar_enemigos(hijo)
 
-
 func agregar_enemigo(enemigo: EnemyBase) -> void:
+	var fila := HBoxContainer.new()
+	fila.custom_minimum_size = Vector2(230, 35)
+
+	# -------------------------
+	# ICONO DEL ENEMIGO
+	# -------------------------
+	var icono := TextureRect.new()
+
+	icono.custom_minimum_size = Vector2(35, 35)
+	icono.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icono.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+
+	var sprite := buscar_sprite(enemigo)
+
+	if sprite != null and sprite.sprite_frames != null:
+		icono.texture = sprite.sprite_frames.get_frame_texture(
+			sprite.animation,
+			0
+		)
+
+	fila.add_child(icono)
+
+	# -------------------------
+	# BARRA DE VIDA
+	# -------------------------
 	var barra := ProgressBar.new()
 
-	barra.custom_minimum_size = Vector2(190, 20)
+	barra.custom_minimum_size = Vector2(150, 25)
+
 	barra.min_value = 0
 	barra.max_value = enemigo.vida_maxima
 	barra.value = enemigo.vida_actual
 
-	barras.add_child(barra)
+	barra.show_percentage = false
 
+	# Color de fondo
+	var fondo := StyleBoxFlat.new()
+	fondo.bg_color = Color(0.15, 0.05, 0.05, 0.9)
+
+	barra.add_theme_stylebox_override(
+		"background",
+		fondo
+	)
+
+	# Color rojo distinto para cada enemigo
+	var relleno := StyleBoxFlat.new()
+
+	var indice := barras.get_child_count()
+
+	var tonos_rojos: Array[Color] = [
+		Color(0.693, 0.004, 0.986, 1.0),
+		Color(0.025, 0.386, 0.774, 1.0),
+		Color(0.0, 0.647, 0.578, 1.0),
+		Color(0.423, 0.514, 0.887, 1.0),
+		Color(0.761, 0.8, 0.055, 1.0)
+	]
+
+	relleno.bg_color = tonos_rojos[
+		indice % tonos_rojos.size()
+	]
+
+	barra.add_theme_stylebox_override(
+		"fill",
+		relleno
+	)
+
+	fila.add_child(barra)
+
+	# Añadimos toda la fila al HUD
+	barras.add_child(fila)
+
+	# Actualizar vida
 	enemigo.vida_cambiada.connect(
 		_on_vida_enemigo_cambiada.bind(barra)
 	)
 
+	# Eliminar fila cuando muera
 	enemigo.murio.connect(
-		_on_enemigo_murio.bind(barra)
+		_on_enemigo_murio.bind(fila)
 	)
 
 
@@ -59,11 +122,9 @@ func _on_vida_enemigo_cambiada(
 
 func _on_enemigo_murio(
 	_enemigo: EnemyBase,
-	barra: ProgressBar
+	fila: HBoxContainer
 ) -> void:
-
-	if is_instance_valid(barra):
-		barra.queue_free()
+	if is_instance_valid(fila): fila.queue_free()
 
 
 func _on_nodo_agregado(nodo: Node) -> void:
@@ -77,3 +138,15 @@ func _on_nodo_agregado(nodo: Node) -> void:
 func limpiar() -> void:
 	for hijo in barras.get_children():
 		hijo.queue_free()
+
+func buscar_sprite(nodo: Node) -> AnimatedSprite2D:
+	if nodo is AnimatedSprite2D:
+		return nodo
+
+	for hijo in nodo.get_children():
+		var resultado := buscar_sprite(hijo)
+
+		if resultado != null:
+			return resultado
+
+	return null

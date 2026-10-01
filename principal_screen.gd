@@ -9,6 +9,7 @@ extends Node2D
 @export var plant_room: PackedScene
 @export var item_room: PackedScene
 @export var hud_enemigos: Control
+@export var hud_info_interaccion: Control
 
 var _nodo_nivel: Node = null
 var _numero_sala: int = 1
@@ -29,6 +30,7 @@ func cargar_sala(escena: PackedScene) -> void:
 	if _nodo_nivel != null: _nodo_nivel.queue_free()
 	_nodo_nivel = escena.instantiate()
 	room_container.add_child(_nodo_nivel)
+	conectar_interactuables_info(_nodo_nivel)
 	if hud_enemigos!=null: hud_enemigos.cargar_sala(_nodo_nivel)
 	var spawn: Marker2D = _nodo_nivel.get_node_or_null("PlayerSpawn")
 	if spawn != null:
@@ -79,3 +81,18 @@ func iniciar_run() -> void:
 	player.cooldown_disparo = 0.0
 	player.aplicar_build(player.build)
 	cargar_sala(start_room)
+
+func conectar_interactuables_info(nodo: Node) -> void:
+	for hijo in nodo.get_children():
+		if hijo.has_signal("mostrar_info"): hijo.mostrar_info.connect(_on_mostrar_info)
+		if hijo.has_signal("ocultar_info"): hijo.ocultar_info.connect(_on_ocultar_info)
+		conectar_interactuables_info(hijo)
+
+func _on_mostrar_info(recompensa: RecompensaResource) -> void:
+	if hud_info_interaccion != null:
+		hud_info_interaccion.mostrar_recompensa(recompensa)
+
+
+func _on_ocultar_info() -> void:
+	if hud_info_interaccion != null:
+		hud_info_interaccion.ocultar()

@@ -3,7 +3,10 @@ extends Area2D
 @export var recompensa: RecompensaResource
 @export var visual_contenido: PackedScene
 @export var grupo_eleccion:String =""
+@export var indicador:Label
 signal recompensa_elegida
+signal mostrar_info(recompensa: RecompensaResource)
+signal ocultar_info
 var consumido: bool = false
 var visual_instanciado: Node2D = null
 
@@ -17,11 +20,16 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if consumido: return
-	if body.is_in_group("player"): body.registrar_interactuable(self)
-	
+	if body.is_in_group("player"): 
+		body.registrar_interactuable(self)
+		if indicador!=null: indicador.visible=true
+		mostrar_info.emit()
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"): body.quitar_interactuable(self)
+	if body.is_in_group("player"): 
+		body.quitar_interactuable(self)
+		if indicador!=null: indicador.visible=false
+		ocultar_info.emit()
 
 func interactuar(player: CharacterBody2D) -> void:
 	if consumido: return

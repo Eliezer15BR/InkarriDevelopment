@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://wjrb10117lre" path="res://escenas/rooms/planta_room/planta_room.tscn" id="5_xkjmt"]
 [ext_resource type="PackedScene" uid="uid://1exoguo67jx3" path="res://escenas/rooms/item_room/item_room.tscn" id="8_0riwj"]
 [ext_resource type="PackedScene" uid="uid://bdi54wo31vj15" path="res://escenas/datos_enemigo/datos_enemigos.tscn" id="9_0riwj"]
+[ext_resource type="PackedScene" uid="uid://bon5tt7um8bgs" path="res://escenas/info_interaccion/info_interaccion.tscn" id="9_216it"]
 
 [node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos")]
 script = ExtResource("1_wxkds")
@@ -25,5 +26,11 @@ hud_enemigos = NodePath("DatosEnemigos")
 [node name="RoomContainer" type="Node2D" parent="." unique_id=80319903]
 
 [node name="CharacterBody2D" parent="." unique_id=2098188972 instance=ExtResource("4_j40sd")]
+
+[node name="InfoInteraccion" parent="." unique_id=465567941 instance=ExtResource("9_216it")]
+offset_left = 1200.0
+offset_top = 250.0
+offset_right = 1201.0
+offset_bottom = 327.0
 
 [node name="DatosEnemigos" parent="." unique_id=1349921800 instance=ExtResource("9_0riwj")]
