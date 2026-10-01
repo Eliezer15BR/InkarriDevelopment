@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c4l11ed0ti8v6" path="res://escenas/screens/label_2.gd" id="4_xtl0m"]
 [ext_resource type="AudioStream" uid="uid://d4mw10dqcg2ey" path="res://musica/intro.mp3" id="5_cqpnh"]
 
-[node name="Menu" type="Control" unique_id=2039530760 node_paths=PackedStringArray("boton_jugar", "boton_salir")]
+[node name="Menu" type="Control" unique_id=2039530760 node_paths=PackedStringArray("boton_jugar", "boton_salir", "boton_controles")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ mouse_filter = 2
 script = ExtResource("1_vf5c6")
 boton_jugar = NodePath("ButtonJugar")
 boton_salir = NodePath("ButtonSalir")
+boton_controles = NodePath("ButtonControles")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1121011174]
 layout_mode = 0
@@ -27,18 +28,26 @@ texture = ExtResource("2_vf5c6")
 
 [node name="ButtonJugar" type="Button" parent="." unique_id=1084880518]
 layout_mode = 0
-offset_left = 420.0
-offset_top = 406.0
-offset_right = 589.0
-offset_bottom = 485.0
+offset_left = 358.0
+offset_top = 388.0
+offset_right = 543.0
+offset_bottom = 467.0
+flat = true
+
+[node name="ButtonControles" type="Button" parent="." unique_id=1477174653]
+layout_mode = 0
+offset_left = 572.0
+offset_top = 396.0
+offset_right = 774.0
+offset_bottom = 466.0
 flat = true
 
 [node name="ButtonSalir" type="Button" parent="." unique_id=1381554751]
 layout_mode = 0
-offset_left = 773.0
-offset_top = 405.0
-offset_right = 929.0
-offset_bottom = 486.0
+offset_left = 814.0
+offset_top = 392.0
+offset_right = 1001.0
+offset_bottom = 473.0
 flat = true
 
 [node name="Label2" type="Label" parent="." unique_id=348171815]

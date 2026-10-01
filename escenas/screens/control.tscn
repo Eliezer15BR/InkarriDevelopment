@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://dxbj1mcee2rpo" path="res://escenas/screens/control.gd" id="1_1gwl0"]
 [ext_resource type="Texture2D" uid="uid://dsyjbeido8h7k" path="res://sprites/screens/controles.png" id="1_1rw1e"]
 
-[node name="Controles" type="Control" unique_id=1229145208]
+[node name="Controles" type="Control" unique_id=1229145208 node_paths=PackedStringArray("boton_volver")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_1gwl0")
+boton_volver = NodePath("Button")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1966369553]
 layout_mode = 0

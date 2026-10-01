@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cf3nqq66jsa0f" path="res://sprites/screens/pausa.png" id="1_88w53"]
 [ext_resource type="Script" uid="uid://jnyg2myxhol4" path="res://escenas/screens/menu_pausa.gd" id="1_eynmt"]
 
-[node name="MenuPausa" type="Control" unique_id=614607835 node_paths=PackedStringArray("boton_continuar", "boton_menu")]
+[node name="MenuPausa" type="Control" unique_id=614607835 node_paths=PackedStringArray("boton_continuar", "boton_menu", "boton_controles")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -11,6 +11,7 @@ offset_bottom = 40.0
 script = ExtResource("1_eynmt")
 boton_continuar = NodePath("ButtonContinuar")
 boton_menu = NodePath("ButtonSalir")
+boton_controles = NodePath("ButtonControles")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=673043265]
 layout_mode = 0
@@ -21,16 +22,24 @@ texture = ExtResource("1_88w53")
 
 [node name="ButtonSalir" type="Button" parent="." unique_id=1186627865]
 layout_mode = 0
-offset_left = 527.0
-offset_top = 386.0
-offset_right = 837.0
-offset_bottom = 472.0
+offset_left = 529.0
+offset_top = 439.0
+offset_right = 839.0
+offset_bottom = 519.0
 flat = true
 
 [node name="ButtonContinuar" type="Button" parent="." unique_id=326267391]
 layout_mode = 0
-offset_left = 526.0
-offset_top = 288.0
-offset_right = 836.0
-offset_bottom = 374.0
+offset_left = 522.0
+offset_top = 267.0
+offset_right = 832.0
+offset_bottom = 353.0
+flat = true
+
+[node name="ButtonControles" type="Button" parent="." unique_id=1128551026]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 359.0
+offset_right = 831.0
+offset_bottom = 433.0
 flat = true

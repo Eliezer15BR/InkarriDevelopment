@@ -3,14 +3,20 @@ extends Control
 @export var boton_continuar: Button
 @export var boton_menu: Button
 @export var pantalla_fin_juego: Control
+@export var boton_controles: Button
+@export var pantalla_controles: Control
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
-
+	boton_controles.pressed.connect(_on_controles_pressed)
 	boton_continuar.pressed.connect(_on_continuar_pressed)
 	boton_menu.pressed.connect(_on_menu_pressed)
 
+func _on_controles_pressed() -> void:
+	visible = false
+	pantalla_controles.desde_pausa = true
+	pantalla_controles.visible = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("pausa"): return
