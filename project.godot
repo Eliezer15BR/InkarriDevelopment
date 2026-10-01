@@ -14,7 +14,7 @@ config/name="Inkarri"
 config/version="0.9.98"
 run/main_scene="uid://drurfimllajhn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://c6w727oh0s3kr"
 
 [display]
 

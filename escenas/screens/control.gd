@@ -7,15 +7,14 @@ var desde_pausa: bool = false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
 	boton_volver.pressed.connect(_on_volver_pressed)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not visible:
-		return
+	if not visible: return
 
 	if event.is_action_pressed("pausa"):
+		get_viewport().set_input_as_handled()
 		volver()
 
 

@@ -5,6 +5,9 @@ extends Control
 @export var pantalla_fin_juego: Control
 @export var boton_controles: Button
 @export var pantalla_controles: Control
+@export var hud_jugador: CanvasItem
+@export var hud_enemigos: CanvasItem
+@export var hud_info: CanvasItem
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -26,11 +29,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func pausar_partida() -> void:
 	visible = true
+	if hud_jugador != null: hud_jugador.visible = false
+	if hud_enemigos != null:hud_enemigos.visible = false
+	if hud_info != null:hud_info.visible = false
 	get_tree().paused = true
 
 func continuar_partida() -> void:
 	get_tree().paused = false
 	visible = false
+	if hud_jugador != null: hud_jugador.visible = true
+	if hud_enemigos != null: hud_enemigos.visible = true
+	if hud_info != null: hud_info.visible = true
 
 func _on_continuar_pressed() -> void:
 	continuar_partida()
