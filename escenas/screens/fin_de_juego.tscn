@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cdp5rpakppfel"]
+
+[ext_resource type="Texture2D" uid="uid://bkvwwmiuhqwvw" path="res://sprites/screens/fin.png" id="1_6skjj"]
+[ext_resource type="Script" uid="uid://cqv7apxtna40r" path="res://escenas/screens/fin_de_juego.gd" id="1_tc65b"]
+
+[node name="FinDeJuego" type="Control" unique_id=1863778300 node_paths=PackedStringArray("boton_menu", "boton_reiniciar")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tc65b")
+boton_menu = NodePath("ButtonMenu")
+boton_reiniciar = NodePath("ButtonReiniciar")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=492326646]
+layout_mode = 0
+offset_right = 1806.0
+offset_bottom = 871.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_6skjj")
+
+[node name="ButtonMenu" type="Button" parent="." unique_id=1166291329]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 415.0
+offset_right = 656.0
+offset_bottom = 501.0
+mouse_filter = 2
+flat = true
+
+[node name="ButtonReiniciar" type="Button" parent="." unique_id=661819116]
+layout_mode = 0
+offset_left = 693.0
+offset_top = 399.0
+offset_right = 971.0
+offset_bottom = 506.0
+mouse_filter = 2
+flat = true

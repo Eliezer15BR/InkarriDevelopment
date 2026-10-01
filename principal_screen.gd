@@ -10,6 +10,7 @@ extends Node2D
 @export var item_room: PackedScene
 @export var hud_enemigos: Control
 @export var hud_info_interaccion: Control
+@export var pantalla_fin_juego: Control
 
 var _nodo_nivel: Node = null
 var _numero_sala: int = 1
@@ -19,8 +20,15 @@ func _ready() -> void:
 	randomize()
 	if not player.murio.is_connected(_on_player_murio):
 		player.murio.connect(_on_player_murio)
+	pantalla_fin_juego.visible=false
+	if pantalla_fin_juego.has_signal("reinicar partida"):
+		pantalla_fin_juego.reiniciar_partida.connect(_on_reiniciar_partida)
 	cargar_sala(start_room)
 
+func _on_reiniciar_partida():
+	get_tree().paused=false
+	pantalla_fin_juego.visible=false
+	iniciar_run()
 
 func cargar_sala(escena: PackedScene) -> void:
 	if escena == null:
@@ -66,7 +74,9 @@ func _on_portal_inicio(_nivel: int) -> void:
 	_numero_sala = 2
 	cargar_sala(elegir_sala_aleatoria())
 
-func _on_player_murio() -> void: iniciar_run()
+func _on_player_murio() -> void: 
+	pantalla_fin_juego.visible=true
+	iniciar_run()
 
 func limpiar_proyectiles() -> void:
 	for proyectil in get_tree().get_nodes_in_group("proyectiles"):
@@ -91,7 +101,6 @@ func conectar_interactuables_info(nodo: Node) -> void:
 func _on_mostrar_info(recompensa: RecompensaResource) -> void:
 	if hud_info_interaccion != null:
 		hud_info_interaccion.mostrar_recompensa(recompensa)
-		print("hola bro")
 
 
 func _on_ocultar_info() -> void:

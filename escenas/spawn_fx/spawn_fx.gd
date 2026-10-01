@@ -1,11 +1,21 @@
-extends Node2D
+extends Control
 
-@export var animacion: AnimatedSprite2D
+@export var boton_menu: Button
+@export var boton_reiniciar: Button
+
+signal reiniciar_partida
+
 
 func _ready() -> void:
-	animacion.stop()
+	boton_menu.pressed.connect(_on_menu_pressed)
+	boton_reiniciar.pressed.connect(_on_reiniciar_pressed)
 
-	for i in range(6):
-		animacion.frame = i
-		print("FRAME: ", i)
-		await get_tree().create_timer(0.2).timeout
+
+func _on_menu_pressed() -> void:
+	get_tree().change_scene_to_file(
+		"res://escenas/menu/menu.tscn"
+	)
+
+
+func _on_reiniciar_pressed() -> void:
+	reiniciar_partida.emit()

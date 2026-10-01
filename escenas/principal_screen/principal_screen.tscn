@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://1exoguo67jx3" path="res://escenas/rooms/item_room/item_room.tscn" id="8_0riwj"]
 [ext_resource type="PackedScene" uid="uid://bdi54wo31vj15" path="res://escenas/datos_enemigo/datos_enemigos.tscn" id="9_0riwj"]
 [ext_resource type="PackedScene" uid="uid://bon5tt7um8bgs" path="res://escenas/info_interaccion/info_interaccion.tscn" id="9_216it"]
+[ext_resource type="PackedScene" uid="uid://cdp5rpakppfel" path="res://escenas/screens/fin_de_juego.tscn" id="10_kgilr"]
 
-[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos", "hud_info_interaccion")]
+[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos", "hud_info_interaccion", "pantalla_fin_juego")]
 script = ExtResource("1_wxkds")
 room_container = NodePath("RoomContainer")
 player = NodePath("CharacterBody2D")
@@ -23,6 +24,7 @@ plant_room = ExtResource("5_xkjmt")
 item_room = ExtResource("8_0riwj")
 hud_enemigos = NodePath("DatosEnemigos")
 hud_info_interaccion = NodePath("InfoInteraccion")
+pantalla_fin_juego = NodePath("FinDeJuego")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=80319903]
 
@@ -34,5 +36,10 @@ offset_left = 581.0
 offset_top = 155.0
 offset_right = 628.0
 offset_bottom = 232.0
+metadata/_edit_use_anchors_ = true
+
+[node name="FinDeJuego" parent="." unique_id=1863778300 instance=ExtResource("10_kgilr")]
+offset_left = 575.0
+offset_right = 615.0
 
 [node name="DatosEnemigos" parent="." unique_id=1349921800 instance=ExtResource("9_0riwj")]
