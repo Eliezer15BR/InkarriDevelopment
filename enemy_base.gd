@@ -3,6 +3,7 @@ class_name  EnemyBase
 signal vida_cambiada(vida_actual:float, vida_maxima:float)
 signal murio(enemigo: EnemyBase)
 @export var estadisticas: EnemyStatsResource
+@export var murio_sound: AudioStreamPlayer2D
 const SPAWN_FX=preload("res://escenas/spawn_fx/spawn_fx.tscn")
 const PIXELS_PER_MOVEMENT: float=25.0
 var vida_maxima:float
@@ -38,6 +39,7 @@ func recibir_dano(cantidad:float):
 	if vida_actual<=0: morir()
 
 func morir():
+	murio_sound.play()
 	murio.emit(self)
 	queue_free()
 
@@ -47,6 +49,7 @@ func iniciar_aparicion() -> void:
 	var efecto = SPAWN_FX.instantiate()
 	get_parent().add_child.call_deferred(efecto)
 	await efecto.ready
+	efecto.get_node("AudioStreamPlayer2D").play()
 	efecto.global_position = global_position
 	var animacion_efecto: AnimatedSprite2D = efecto.get_node(
 		"AnimatedSprite2D"
