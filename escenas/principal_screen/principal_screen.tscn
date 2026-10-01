@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cusk7kihpg86q" path="res://musica/cueva2.mp3" id="9_laeo5"]
 [ext_resource type="PackedScene" uid="uid://cdp5rpakppfel" path="res://escenas/screens/fin_de_juego.tscn" id="10_kgilr"]
 [ext_resource type="AudioStream" uid="uid://dgygk1rff5swc" path="res://musica/cueva3.mp3" id="10_usl86"]
+[ext_resource type="PackedScene" uid="uid://cth58k35p1kq5" path="res://escenas/screens/menu_pausa.tscn" id="16_laeo5"]
 
 [node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos", "hud_info_interaccion", "pantalla_fin_juego", "musica")]
 script = ExtResource("1_wxkds")
@@ -52,5 +53,11 @@ offset_left = -574.0
 offset_top = -326.0
 offset_right = -490.0
 offset_bottom = -286.0
+
+[node name="MenuPausa" parent="." unique_id=614607835 instance=ExtResource("16_laeo5")]
+offset_left = -581.0
+offset_top = -320.0
+offset_right = -541.0
+offset_bottom = -280.0
 
 [node name="Musica" type="AudioStreamPlayer2D" parent="." unique_id=258321168]
