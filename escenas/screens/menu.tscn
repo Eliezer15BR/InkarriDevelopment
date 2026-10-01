@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://jv0u2s1k3ftr" path="res://escenas/screens/menu.gd" id="1_vf5c6"]
 [ext_resource type="Texture2D" uid="uid://c52c8sswqt2ji" path="res://sprites/screens/menu.png" id="2_vf5c6"]
+[ext_resource type="Theme" uid="uid://c8ufndp1ljc63" path="res://temas/letra.tres" id="3_vajnu"]
+[ext_resource type="Script" uid="uid://c4l11ed0ti8v6" path="res://escenas/screens/label_2.gd" id="4_xtl0m"]
 
 [node name="Menu" type="Control" unique_id=2039530760 node_paths=PackedStringArray("boton_jugar", "boton_salir")]
 layout_mode = 3
@@ -37,3 +39,22 @@ offset_top = 405.0
 offset_right = 929.0
 offset_bottom = 486.0
 flat = true
+
+[node name="Label2" type="Label" parent="." unique_id=348171815]
+layout_mode = 0
+offset_left = 1227.0
+offset_top = 615.0
+offset_right = 1574.0
+offset_bottom = 650.0
+theme = ExtResource("3_vajnu")
+text = "Version"
+script = ExtResource("4_xtl0m")
+
+[node name="Label" type="Label" parent="." unique_id=1449907084]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 622.0
+offset_right = 360.0
+offset_bottom = 657.0
+theme = ExtResource("3_vajnu")
+text = "Hecho por Marco Cabrera y Eliseo Condori"
