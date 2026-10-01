@@ -41,4 +41,3 @@ flat = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=507632303]
 stream = ExtResource("3_efksw")
 volume_db = -10.0
-parameters/looping = true

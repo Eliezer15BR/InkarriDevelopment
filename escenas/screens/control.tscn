@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://loea3b8cxcy"]
+
+[ext_resource type="Script" uid="uid://dxbj1mcee2rpo" path="res://escenas/screens/control.gd" id="1_1gwl0"]
+[ext_resource type="Texture2D" uid="uid://dsyjbeido8h7k" path="res://sprites/screens/controles.png" id="1_1rw1e"]
+
+[node name="Controles" type="Control" unique_id=1229145208]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1gwl0")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1966369553]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_1rw1e")
+
+[node name="Button" type="Button" parent="." unique_id=1567425785]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 553.0
+offset_right = 858.0
+offset_bottom = 617.0
+flat = true
