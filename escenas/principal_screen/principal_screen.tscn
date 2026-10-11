@@ -15,10 +15,11 @@
 [ext_resource type="AudioStream" uid="uid://cusk7kihpg86q" path="res://musica/cueva2.mp3" id="9_laeo5"]
 [ext_resource type="PackedScene" uid="uid://cdp5rpakppfel" path="res://escenas/screens/fin_de_juego.tscn" id="10_kgilr"]
 [ext_resource type="AudioStream" uid="uid://dgygk1rff5swc" path="res://musica/cueva3.mp3" id="10_usl86"]
+[ext_resource type="PackedScene" uid="uid://dd5ugj6xjjxe" path="res://escenas/screens/victoria.tscn" id="16_d50x4"]
 [ext_resource type="PackedScene" uid="uid://cth58k35p1kq5" path="res://escenas/screens/menu_pausa.tscn" id="16_laeo5"]
 [ext_resource type="PackedScene" uid="uid://loea3b8cxcy" path="res://escenas/screens/control.tscn" id="17_usl86"]
 
-[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos", "hud_info_interaccion", "pantalla_fin_juego", "musica")]
+[node name="PrincipalScreen" type="Node2D" unique_id=805038794 node_paths=PackedStringArray("room_container", "player", "hud_enemigos", "hud_info_interaccion", "pantalla_fin_juego", "musica", "pantalla_victoria")]
 script = ExtResource("1_wxkds")
 room_container = NodePath("RoomContainer")
 player = NodePath("CharacterBody2D")
@@ -34,6 +35,7 @@ pantalla_fin_juego = NodePath("FinDeJuego")
 musica = NodePath("Musica")
 playlist = Array[AudioStream]([ExtResource("8_7tjf7"), ExtResource("9_laeo5"), ExtResource("10_usl86")])
 musica_boss = ExtResource("8_47qa8")
+pantalla_victoria = NodePath("Victoria")
 
 [node name="RoomContainer" type="Node2D" parent="." unique_id=80319903]
 
@@ -54,6 +56,12 @@ offset_left = -574.0
 offset_top = -326.0
 offset_right = -490.0
 offset_bottom = -286.0
+
+[node name="Victoria" parent="." unique_id=563361869 instance=ExtResource("16_d50x4")]
+offset_left = -584.0
+offset_top = -322.0
+offset_right = -544.0
+offset_bottom = -282.0
 
 [node name="MenuPausa" parent="." unique_id=614607835 node_paths=PackedStringArray("pantalla_fin_juego", "pantalla_controles", "hud_jugador", "hud_enemigos", "hud_info") instance=ExtResource("16_laeo5")]
 offset_left = -581.0

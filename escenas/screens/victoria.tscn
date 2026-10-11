@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dd5ugj6xjjxe"]
+
+[ext_resource type="Script" uid="uid://b5ni74tfsdwvo" path="res://escenas/screens/victoria.gd" id="1_bv8ib"]
+[ext_resource type="Texture2D" uid="uid://64q3w5ki2s4g" path="res://sprites/screens/victoria.png" id="2_gcn3o"]
+
+[node name="Victoria" type="Control" unique_id=563361869 node_paths=PackedStringArray("boton_menu")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bv8ib")
+boton_menu = NodePath("ButtonMenu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=441832375]
+layout_mode = 0
+offset_right = 1808.0
+offset_bottom = 870.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_gcn3o")
+
+[node name="ButtonMenu" type="Button" parent="." unique_id=720067687]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 387.0
+offset_right = 839.0
+offset_bottom = 468.0
+flat = true

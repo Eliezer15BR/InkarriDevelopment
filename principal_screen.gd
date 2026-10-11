@@ -14,6 +14,7 @@ extends Node2D
 @export var musica: AudioStreamPlayer2D
 @export var playlist: Array[AudioStream]=[]
 @export var musica_boss: AudioStream
+@export var pantalla_victoria: Control
 
 var _indice_cancion: int=0
 var _modo_boss:bool=false
@@ -26,6 +27,7 @@ func _ready() -> void:
 	if not player.murio.is_connected(_on_player_murio):
 		player.murio.connect(_on_player_murio)
 	pantalla_fin_juego.visible=false
+	pantalla_victoria.visible=false
 	if pantalla_fin_juego.has_signal("reiniciar_partida"):
 		pantalla_fin_juego.reiniciar_partida.connect(_on_reiniciar_partida)
 	musica.finished.connect(_on_musica_terminada)
@@ -70,6 +72,10 @@ func cargar_sala(escena: PackedScene) -> void:
 	if _nodo_nivel != null: _nodo_nivel.queue_free()
 	_nodo_nivel = escena.instantiate()
 	room_container.add_child(_nodo_nivel)
+	if escena==boss_room:
+		var boss:EnemyBase=_nodo_nivel.get_node_or_null("Espiritu")
+		if boss!=null: boss.murio.connect(_on_boss_murio)
+		else: push_warning("no hay espiritu")
 	conectar_interactuables_info(_nodo_nivel)
 	if hud_enemigos!=null: hud_enemigos.cargar_sala(_nodo_nivel)
 	var spawn: Marker2D = _nodo_nivel.get_node_or_null("PlayerSpawn")
@@ -138,6 +144,16 @@ func _on_mostrar_info(recompensa: RecompensaResource) -> void:
 	if hud_info_interaccion != null:
 		hud_info_interaccion.mostrar_recompensa(recompensa)
 
+func _on_boss_murio(_boss:EnemyBase):
+	musica.stop()
+	limpiar_proyectiles()
+	if hud_enemigos!=null: hud_enemigos.visible=false
+	if hud_info_interaccion!=null: hud_info_interaccion.visible=false
+	var hud_jugador:=player.get_node_or_null("CanvasLayer/Contador")
+	if hud_jugador!=null: hud_jugador.visible=false
+	pantalla_victoria.mostrar_victoria()
+	get_tree().paused=true
+	
 
 func _on_ocultar_info() -> void:
 	if hud_info_interaccion != null:
